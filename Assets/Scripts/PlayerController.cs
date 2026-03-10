@@ -3,34 +3,66 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private void Update()
+    private InputAction _moveAction;
+
+    private void Start()
     {
-        CheckInput();
+        _moveAction = InputSystem.actions.FindAction("Move");
     }
 
-    private void CheckInput()
+    private void Update()
     {
+        Move();
+    }
+
+    private Vector3 GetNewLocation()
+    {
+        Vector2 moveValue = _moveAction.ReadValue<Vector2>();
+
         float x = transform.position.x;
         float y = transform.position.y;
 
-        if (Keyboard.current.aKey.wasPressedThisFrame)
+        if (_moveAction.WasPressedThisFrame())
         {
-            transform.position = new Vector3(x - 2, y, 0);
+            if (moveValue.x == -1)
+            {
+                return new Vector3(x - 2, y, 0);
+            }
+            else if (moveValue.x == 1)
+            {
+                return new Vector3(x + 2, y, 0);
+            }
+            else if (moveValue.y == 1)
+            {
+                return new Vector3(x, y + 2, 0);
+            }
+            else if (moveValue.y == -1)
+            {
+                return new Vector3(x, y - 2, 0);
+            }
+            else
+            {
+                return transform.position;
+            }
         }
-
-        if (Keyboard.current.dKey.wasPressedThisFrame)
+        else
         {
-            transform.position = new Vector3(x + 2, y, 0);
+            return transform.position;
         }
+    }
 
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+    private void Move()
+    {
+        Vector3 previousLocation = transform.position;
+        Vector3 newLocation = GetNewLocation();
+
+        if (newLocation.y < -12 || newLocation.y > 12 || newLocation.x < -16 || newLocation.x > 16)
         {
-            transform.position = new Vector3(x, y + 2, 0);
+            transform.position = previousLocation;
         }
-
-        if (Keyboard.current.sKey.wasPressedThisFrame)
+        else
         {
-            transform.position = new Vector3(x, y - 2, 0);
+            transform.position = newLocation;
         }
     }
 }
