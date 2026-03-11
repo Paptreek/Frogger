@@ -65,4 +65,13 @@ public class PlayerController : MonoBehaviour
             transform.position = newLocation;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            Destroy(gameObject);
+            Debug.Log("ded");
+        }
+    }
 }
