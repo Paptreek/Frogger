@@ -74,4 +74,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("ded");
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Log"))
+        {
+            // need to use the current log's MoveSpeed here somehow
+            transform.Translate(new Vector3(-7.5f, 0, 0) * Time.deltaTime);
+        }
+    }
 }

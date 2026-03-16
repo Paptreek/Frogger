@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cars : MonoBehaviour
+public class CarGroup : MonoBehaviour
 {
     [SerializeField] private GameObject _carObj;
 
