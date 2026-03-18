@@ -265,9 +265,9 @@ GameObject:
   - component: {fileID: 293844030}
   - component: {fileID: 293844029}
   - component: {fileID: 293844031}
-  - component: {fileID: 293844032}
   - component: {fileID: 293844033}
   - component: {fileID: 293844034}
+  - component: {fileID: 293844032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bf4ded43302de44868683cc4e1d2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  _log: {fileID: 8827920753494872483, guid: 95e2d938018925544a57ef60d64dc00d, type: 3}
 --- !u!50 &293844033
 Rigidbody2D:
   serializedVersion: 5
@@ -1048,6 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogGroup
   _logObj: {fileID: 8827920753494872483, guid: 95e2d938018925544a57ef60d64dc00d, type: 3}
+  _player: {fileID: 293844028}
 --- !u!1 &978021413
 GameObject:
   m_ObjectHideFlags: 0

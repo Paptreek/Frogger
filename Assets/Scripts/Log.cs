@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Log : MonoBehaviour
 {
-    public float MoveSpeed { get; set; } = -7.5f;
+    public float MoveSpeed { get; set; }
+    public float SpawnTimer { get; set; }
 
     private void Update()
     {

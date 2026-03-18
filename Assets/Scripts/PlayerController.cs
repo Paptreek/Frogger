@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject _log;
+
     private InputAction _moveAction;
 
     private void Start()
@@ -26,11 +28,11 @@ public class PlayerController : MonoBehaviour
         {
             if (moveValue.x == -1)
             {
-                return new Vector3(x - 2, y, 0);
+                return new Vector3(x - 1, y, 0);
             }
             else if (moveValue.x == 1)
             {
-                return new Vector3(x + 2, y, 0);
+                return new Vector3(x + 1, y, 0);
             }
             else if (moveValue.y == 1)
             {
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour
         Vector3 previousLocation = transform.position;
         Vector3 newLocation = GetNewLocation();
 
-        if (newLocation.y < -12 || newLocation.y > 12 || newLocation.x < -16 || newLocation.x > 16)
+        if (Mathf.Abs(newLocation.y) > 12 || Mathf.Abs(newLocation.x) > 19)
         {
             transform.position = previousLocation;
         }
@@ -72,15 +74,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("ded");
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Log"))
-        {
-            // need to use the current log's MoveSpeed here somehow
-            transform.Translate(new Vector3(-7.5f, 0, 0) * Time.deltaTime);
         }
     }
 }
