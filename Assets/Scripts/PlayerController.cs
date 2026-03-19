@@ -28,11 +28,11 @@ public class PlayerController : MonoBehaviour
         {
             if (moveValue.x == -1)
             {
-                return new Vector3(x - 1, y, 0);
+                return new Vector3(x - 2, y, 0);
             }
             else if (moveValue.x == 1)
             {
-                return new Vector3(x + 1, y, 0);
+                return new Vector3(x + 2, y, 0);
             }
             else if (moveValue.y == 1)
             {
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         Vector3 previousLocation = transform.position;
         Vector3 newLocation = GetNewLocation();
 
-        if (Mathf.Abs(newLocation.y) > 12 || Mathf.Abs(newLocation.x) > 19)
+        if (Mathf.Abs(newLocation.y) > 12 || Mathf.Abs(newLocation.x) > 13)
         {
             transform.position = previousLocation;
         }

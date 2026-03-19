@@ -9,7 +9,7 @@ public class Log : MonoBehaviour
     {
         transform.Translate(new Vector3(MoveSpeed, 0, 0) * Time.deltaTime);
 
-        if (Mathf.Abs(transform.position.x) > 24)
+        if (Mathf.Abs(transform.position.x) > 19)
         {
             Destroy(gameObject);
         }

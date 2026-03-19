@@ -15,8 +15,8 @@ public class LogGroup : MonoBehaviour
     {
         for (int i = 0; i < _laneSpeeds.Length; i++)
         {
-            _laneSpeeds[i] = Random.Range(-10.0f, -5.0f);
-            _spawnTimers[i] = 2.0f;
+            _laneSpeeds[i] = Random.Range(5.0f, 10.0f);
+            _spawnTimers[i] = 0.25f;
         }
     }
 
@@ -27,7 +27,7 @@ public class LogGroup : MonoBehaviour
             _spawnTimers[i] -= Time.deltaTime;
         }
 
-        SpawnCars();
+        SpawnLogs();
 
         for (int i = 0; i < _logs.Count; i++)
         {
@@ -38,7 +38,7 @@ public class LogGroup : MonoBehaviour
 
             if (_player != null)
             {
-                if (_logs[i] != null && _logs[i].GetComponent<BoxCollider2D>().IsTouching(_player.GetComponent<BoxCollider2D>()))
+                if (_logs.Contains(_logs[i]) && _logs[i].GetComponent<BoxCollider2D>().IsTouching(_player.GetComponent<BoxCollider2D>()))
                 {
                     _player.transform.Translate(new Vector3(_logs[i].GetComponent<Log>().MoveSpeed, 0, 0) * Time.deltaTime);
                 }
@@ -46,9 +46,9 @@ public class LogGroup : MonoBehaviour
         }
     }
 
-    private void SpawnCars()
+    private void SpawnLogs()
     {
-        int x = 24;
+        int x = -17;
         int y = 4;
 
         for (int i = 0; i < _laneSpeeds.Length; i++)
@@ -61,7 +61,7 @@ public class LogGroup : MonoBehaviour
             if (_spawnTimers[i] <= 0)
             {
                 _logs.Add(CreateLog(x, y, _laneSpeeds[i]));
-                _spawnTimers[i] = Random.Range(1.0f, 3.0f);
+                _spawnTimers[i] = Random.Range(1.5f, 3.0f);
             }
 
             y += 2;
