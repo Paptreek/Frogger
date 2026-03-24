@@ -7,6 +7,10 @@ TagManager:
   - Car
   - Log
   - ReverseLane
+  - Water
+  - Turtle
+  - SafeZone
+  - Road
   layers:
   - Default
   - TransparentFX
