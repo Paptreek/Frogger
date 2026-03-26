@@ -1,24 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject _log;
     [SerializeField] private GameObject _water;
+    [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
 
+    private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
-    private Rigidbody2D _rb;
 
-    private bool _isTouchingTurtle;
+    private bool _isOnTurtle;
+    private bool _isOnLog;
 
     private void Start()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
         _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
-        _rb = gameObject.GetComponent<Rigidbody2D>();
+        _logGroup = _logGroupObj.GetComponent<LogGroup>();
     }
 
     private void Update()
@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
         if (gameObject != null)
         {
             Move();
-            CheckIfTouchingTurtle();
+            CheckIfOnTurtle();
+            CheckIfOnLog();
             CheckIfTouchingWater();
 
             if (Mathf.Abs(transform.position.x) > 12.5f)
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            Debug.Log(_isTouchingTurtle);
+            Debug.Log(_isOnTurtle);
         }
     }
 
@@ -98,30 +99,59 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CheckIfTouchingTurtle()
+    private void CheckIfOnTurtle()
     {
         for (int i = 0; i < _turtleGroup.Turtles.Count; i++)
         {
             GameObject turtle = _turtleGroup.Turtles[i];
             BoxCollider2D playerCol = gameObject.GetComponent<BoxCollider2D>();
-            BoxCollider2D turtleCol = turtle.GetComponent<BoxCollider2D>();
 
-            if (playerCol.IsTouching(turtleCol))
+            if (turtle != null)
             {
-                _isTouchingTurtle = true;
-                transform.Translate(new Vector3(turtle.GetComponent<Turtle>().MoveSpeed, 0, 0) * Time.deltaTime);
-                break;
+                BoxCollider2D turtleCol = turtle.GetComponent<BoxCollider2D>();
+
+                if (playerCol.IsTouching(turtleCol))
+                {
+                    _isOnTurtle = true;
+                    transform.Translate(new Vector3(turtle.GetComponent<Turtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    break;
+                }
+                else
+                {
+                    _isOnTurtle = false;
+                }
             }
-            else
+        }
+    }
+
+    private void CheckIfOnLog()
+    {
+        for (int i = 0; i < _logGroup.Logs.Count; i++)
+        {
+            GameObject log = _logGroup.Logs[i];
+            BoxCollider2D playerCol = gameObject.GetComponent<BoxCollider2D>();
+
+            if (log != null)
             {
-                _isTouchingTurtle = false;
+                BoxCollider2D logCol = log.GetComponent<BoxCollider2D>();
+
+                if (playerCol.IsTouching(logCol))
+                {
+                    _isOnLog = true;
+                    transform.Translate(new Vector3(log.GetComponent<Log>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    break;
+                }
+                else
+                {
+                    _isOnLog = false;
+                }
             }
         }
     }
 
     private void CheckIfTouchingWater()
     {
-        if (!_isTouchingTurtle)
+        if (!_isOnTurtle && !_isOnLog)
         {
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()))
             {

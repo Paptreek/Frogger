@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bf4ded43302de44868683cc4e1d2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _log: {fileID: 8827920753494872483, guid: 95e2d938018925544a57ef60d64dc00d, type: 3}
   _water: {fileID: 491986312}
+  _logGroupObj: {fileID: 893796559}
   _turtleGroupObj: {fileID: 262002489}
 --- !u!50 &293844033
 Rigidbody2D:

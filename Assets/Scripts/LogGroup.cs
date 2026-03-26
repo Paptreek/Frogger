@@ -6,7 +6,7 @@ public class LogGroup : MonoBehaviour
     [SerializeField] private GameObject _logObj;
     [SerializeField] private GameObject _player;
 
-    private List<GameObject> _logs = new List<GameObject>();
+    public List<GameObject> Logs { get; } = new List<GameObject>();
 
     private float[] _laneSpeeds = new float[3];
     private float[] _spawnTimers = new float[3];
@@ -29,19 +29,11 @@ public class LogGroup : MonoBehaviour
 
         SpawnLogs();
 
-        for (int i = 0; i < _logs.Count; i++)
+        for (int i = 0; i < Logs.Count; i++)
         {
-            if (_logs[i] == null)
+            if (Logs[i] == null)
             {
-                _logs.Remove(_logs[i]);
-            }
-
-            if (_player != null)
-            {
-                if (_logs.Contains(_logs[i]) && _logs[i].GetComponent<BoxCollider2D>().IsTouching(_player.GetComponent<BoxCollider2D>()))
-                {
-                    _player.transform.Translate(new Vector3(_logs[i].GetComponent<Log>().MoveSpeed, 0, 0) * Time.deltaTime);
-                }
+                Logs.Remove(Logs[i]);
             }
         }
     }
@@ -60,7 +52,7 @@ public class LogGroup : MonoBehaviour
 
             if (_spawnTimers[i] <= 0)
             {
-                _logs.Add(CreateLog(x, y, _laneSpeeds[i]));
+                Logs.Add(CreateLog(x, y, _laneSpeeds[i]));
                 _spawnTimers[i] = Random.Range(2.0f, 3.0f);
             }
 
