@@ -11,6 +11,7 @@ TagManager:
   - Turtle
   - SafeZone
   - Road
+  - SinkingTurtle
   layers:
   - Default
   - TransparentFX

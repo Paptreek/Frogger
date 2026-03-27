@@ -3,7 +3,6 @@ using UnityEngine;
 public class Turtle : MonoBehaviour
 {
     public float MoveSpeed { get; set; }
-    public float SpawnTimer { get; set; }
 
     private void Update()
     {

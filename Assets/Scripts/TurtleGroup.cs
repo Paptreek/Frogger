@@ -4,6 +4,7 @@ using UnityEngine;
 public class TurtleGroup : MonoBehaviour
 {
     [SerializeField] private GameObject _turtleObj;
+    [SerializeField] private GameObject _sinkingTurtleObj;
     [SerializeField] private GameObject _player;
 
     public List<GameObject> Turtles { get; } = new List<GameObject>();
@@ -15,7 +16,7 @@ public class TurtleGroup : MonoBehaviour
     {
         for (int i = 0; i < _laneSpeeds.Length; i++)
         {
-            _laneSpeeds[i] = Random.Range(2.5f, 7.5f);
+            _laneSpeeds[i] = Random.Range(4.0f, 7.5f);
             _spawnTimers[i] = 0.25f;
         }
     }
@@ -62,8 +63,21 @@ public class TurtleGroup : MonoBehaviour
 
     private GameObject CreateTurtle(int x, int y, float moveSpeed)
     {
-        GameObject tempObject = Instantiate(_turtleObj, new Vector3(x, y, 0), transform.rotation);
-        tempObject.GetComponent<Turtle>().MoveSpeed = moveSpeed;
+        float coinFlip = Random.Range(0.0f, 1.0f);
+        GameObject tempObject;
+        Debug.Log(coinFlip);
+
+        if (coinFlip <= 0.85)
+        {
+            tempObject = Instantiate(_turtleObj, new Vector3(x, y, 0), transform.rotation);
+            tempObject.GetComponent<Turtle>().MoveSpeed = moveSpeed;
+        }
+        else
+        {
+            tempObject = Instantiate(_sinkingTurtleObj, new Vector3(x, y, 0), transform.rotation);
+            tempObject.GetComponent<SinkingTurtle>().MoveSpeed = moveSpeed;
+        }
+
 
         return tempObject;
     }

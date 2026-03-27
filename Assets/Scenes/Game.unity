@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurtleGroup
   _turtleObj: {fileID: 2316236453159000170, guid: ed132f84f462b8549b25b1d0452fa0ff, type: 3}
+  _sinkingTurtleObj: {fileID: 2316236453159000170, guid: de67b6142e4c9ac4b87ff2904bd298bc, type: 3}
   _player: {fileID: 293844028}
 --- !u!4 &262002491
 Transform:

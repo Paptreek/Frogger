@@ -113,7 +113,16 @@ public class PlayerController : MonoBehaviour
                 if (playerCol.IsTouching(turtleCol))
                 {
                     _isOnTurtle = true;
-                    transform.Translate(new Vector3(turtle.GetComponent<Turtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+
+                    if (turtle.gameObject.tag == "Turtle")
+                    {
+                        transform.Translate(new Vector3(turtle.GetComponent<Turtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    }
+                    else if (turtle.gameObject.tag == "SinkingTurtle")
+                    {
+                        transform.Translate(new Vector3(turtle.GetComponent<SinkingTurtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    }
+
                     break;
                 }
                 else
