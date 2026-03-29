@@ -3,16 +3,39 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject _water;
+    [SerializeField] private GameObject _logGroupObj;
+    [SerializeField] private GameObject _turtleGroupObj;
+
+    private LogGroup _logGroup;
+    private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
+
+    private bool _isOnTurtle;
+    private bool _isOnLog;
+    private Vector3 _startPos = new Vector3(0, -12, 0);
 
     private void Start()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
+        _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
+        _logGroup = _logGroupObj.GetComponent<LogGroup>();
     }
 
     private void Update()
     {
-        Move();
+        if (gameObject != null)
+        {
+            Move();
+            CheckIfOnTurtle();
+            CheckIfOnLog();
+            CheckIfTouchingWater();
+
+            if (Mathf.Abs(transform.position.x) > 12.5f)
+            {
+                transform.position = _startPos;
+            }
+        }
     }
 
     private Vector3 GetNewLocation()
@@ -56,13 +79,99 @@ public class PlayerController : MonoBehaviour
         Vector3 previousLocation = transform.position;
         Vector3 newLocation = GetNewLocation();
 
-        if (newLocation.y < -12 || newLocation.y > 12 || newLocation.x < -16 || newLocation.x > 16)
+        if (Mathf.Abs(newLocation.y) > 12 || Mathf.Abs(newLocation.x) > 13)
         {
             transform.position = previousLocation;
         }
         else
         {
             transform.position = newLocation;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            transform.position = _startPos;
+            Debug.Log("ded from car");
+        }
+
+        if (collision.gameObject.CompareTag("Lilypad"))
+        {
+            transform.position = _startPos;
+            Debug.Log("Scored a Point!");
+        }
+    }
+
+    private void CheckIfOnTurtle()
+    {
+        for (int i = 0; i < _turtleGroup.Turtles.Count; i++)
+        {
+            GameObject turtle = _turtleGroup.Turtles[i];
+            BoxCollider2D playerCol = gameObject.GetComponent<BoxCollider2D>();
+
+            if (turtle != null)
+            {
+                BoxCollider2D turtleCol = turtle.GetComponent<BoxCollider2D>();
+
+                if (playerCol.IsTouching(turtleCol))
+                {
+                    _isOnTurtle = true;
+
+                    if (turtle.gameObject.tag == "Turtle")
+                    {
+                        transform.Translate(new Vector3(turtle.GetComponent<Turtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    }
+                    else if (turtle.gameObject.tag == "SinkingTurtle")
+                    {
+                        transform.Translate(new Vector3(turtle.GetComponent<SinkingTurtle>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    }
+
+                    break;
+                }
+                else
+                {
+                    _isOnTurtle = false;
+                }
+            }
+        }
+    }
+
+    private void CheckIfOnLog()
+    {
+        for (int i = 0; i < _logGroup.Logs.Count; i++)
+        {
+            GameObject log = _logGroup.Logs[i];
+            BoxCollider2D playerCol = gameObject.GetComponent<BoxCollider2D>();
+
+            if (log != null)
+            {
+                BoxCollider2D logCol = log.GetComponent<BoxCollider2D>();
+
+                if (playerCol.IsTouching(logCol))
+                {
+                    _isOnLog = true;
+                    transform.Translate(new Vector3(log.GetComponent<Log>().MoveSpeed, 0, 0) * Time.deltaTime);
+                    break;
+                }
+                else
+                {
+                    _isOnLog = false;
+                }
+            }
+        }
+    }
+
+    private void CheckIfTouchingWater()
+    {
+        if (!_isOnTurtle && !_isOnLog)
+        {
+            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()))
+            {
+                transform.position = _startPos;
+                Debug.Log($"ded from water");
+            }
         }
     }
 }
