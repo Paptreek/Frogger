@@ -65,7 +65,6 @@ public class TurtleGroup : MonoBehaviour
     {
         float coinFlip = Random.Range(0.0f, 1.0f);
         GameObject tempObject;
-        Debug.Log(coinFlip);
 
         if (coinFlip <= 0.85)
         {

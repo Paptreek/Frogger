@@ -12,6 +12,7 @@ TagManager:
   - SafeZone
   - Road
   - SinkingTurtle
+  - Lilypad
   layers:
   - Default
   - TransparentFX

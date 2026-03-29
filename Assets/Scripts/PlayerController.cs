@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _isOnTurtle;
     private bool _isOnLog;
+    private Vector3 _startPos = new Vector3(0, -12, 0);
 
     private void Start()
     {
@@ -32,10 +33,8 @@ public class PlayerController : MonoBehaviour
 
             if (Mathf.Abs(transform.position.x) > 12.5f)
             {
-                Destroy(gameObject);
+                transform.position = _startPos;
             }
-
-            Debug.Log(_isOnTurtle);
         }
     }
 
@@ -90,12 +89,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            Destroy(gameObject);
+            transform.position = _startPos;
             Debug.Log("ded from car");
+        }
+
+        if (collision.gameObject.CompareTag("Lilypad"))
+        {
+            transform.position = _startPos;
+            Debug.Log("Scored a Point!");
         }
     }
 
@@ -164,7 +169,7 @@ public class PlayerController : MonoBehaviour
         {
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()))
             {
-                Destroy(gameObject);
+                transform.position = _startPos;
                 Debug.Log($"ded from water");
             }
         }

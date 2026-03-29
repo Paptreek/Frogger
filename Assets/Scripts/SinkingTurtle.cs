@@ -35,8 +35,6 @@ public class SinkingTurtle : MonoBehaviour
 
         Sink();
         Resurface();
-
-        Debug.Log($"UWT: {_underwaterTimer} ST: {_sinkTimer}");
     }
 
     private void Sink()
