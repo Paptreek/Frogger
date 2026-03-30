@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _isOnTurtle;
     private bool _isOnLog;
+    private float _waterDeathTimer;
     private Vector3 _startPos = new Vector3(0, -12, 0);
+
+    public int RemainingLives { get; private set; } = 7;
+    public int LilypadsReached { get; private set; }
 
     private void Start()
     {
@@ -24,12 +28,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        _waterDeathTimer -= Time.deltaTime;
+
         if (gameObject != null)
         {
             Move();
-            CheckIfOnTurtle();
-            CheckIfOnLog();
-            CheckIfTouchingWater();
+
+            if (transform.position.y > 0 && transform.position.y < 12)
+            {
+                CheckIfOnTurtle();
+                CheckIfOnLog();
+                CheckIfTouchingWater();
+            }
 
             if (Mathf.Abs(transform.position.x) > 12.5f)
             {
@@ -93,14 +103,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            transform.position = _startPos;
-            Debug.Log("ded from car");
+            Kill();
+            Debug.Log($"ded from car! lives remaining: {RemainingLives}");
         }
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
+            LilypadsReached++;
             transform.position = _startPos;
-            Debug.Log("Scored a Point!");
+            Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
         }
     }
 
@@ -167,11 +178,28 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isOnTurtle && !_isOnLog)
         {
-            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()))
+            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
             {
-                transform.position = _startPos;
-                Debug.Log($"ded from water");
+                _waterDeathTimer = 0.5f;
+                Kill();
+
+                Debug.Log($"ded from water! lives remaining: {RemainingLives}");
             }
         }
+    }
+
+    private void Kill()
+    {
+        if (RemainingLives > 1)
+        {
+            transform.position = _startPos;
+            RemainingLives--;
+        }
+        else
+        {
+            RemainingLives--;
+            Destroy(gameObject);
+        }
+
     }
 }
