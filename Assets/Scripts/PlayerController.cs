@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             Move();
 
-            if (transform.position.y > 0 && transform.position.y < 12)
+            if (transform.position.y > 0)
             {
                 CheckIfOnTurtle();
                 CheckIfOnLog();
