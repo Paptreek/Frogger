@@ -42,14 +42,14 @@ public class CarGroup : MonoBehaviour
             if (_spawnTimers[i] <= 0)
             {
                 CreateCar(x, y, _laneSpeeds[i]);
-                _spawnTimers[i] = Random.Range(2.5f, 4.0f);
+                _spawnTimers[i] = Random.Range(2.0f, 3.0f);
 
-                if (coinFlip > 0.75f && _secondCarTimer <= 0)
+                if (coinFlip > 0.65f && _secondCarTimer <= 0)
                 {
                     CreateCar(x - Random.Range(4, 7), y, _laneSpeeds[i]);
                     _secondCarTimer = 0.75f;
 
-                    Debug.Log("Spawn a second car");
+                    //Debug.Log("Spawn a second car");
                 }
             }
 

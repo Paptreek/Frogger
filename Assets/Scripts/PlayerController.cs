@@ -104,14 +104,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Car"))
         {
             Kill();
-            Debug.Log($"ded from car! lives remaining: {RemainingLives}");
+            //Debug.Log($"ded from car! lives remaining: {RemainingLives}");
         }
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
             LilypadsReached++;
             transform.position = _startPos;
-            Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
+            //Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
         }
     }
 
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
                 _waterDeathTimer = 0.5f;
                 Kill();
 
-                Debug.Log($"ded from water! lives remaining: {RemainingLives}");
+                //Debug.Log($"ded from water! lives remaining: {RemainingLives}");
             }
         }
     }
