@@ -16,7 +16,7 @@ public class LogGroup : MonoBehaviour
         for (int i = 0; i < _laneSpeeds.Length; i++)
         {
             _laneSpeeds[i] = Random.Range(4.0f, 9.0f);
-            _spawnTimers[i] = 0.25f;
+            _spawnTimers[i] = Random.Range(0.25f, 3.0f);
         }
     }
 
