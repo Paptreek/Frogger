@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
         _remainingLives = _player.RemainingLives;
 
         CheckForGameOver();
-
-        //Debug.Log($"Lilypads Reached: {_lilypadsReached}, Remaining Lives: {_remainingLives}");
     }
 
     private void CheckForGameOver()
