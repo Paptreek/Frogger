@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float _waterDeathTimer;
     private Vector3 _startPos = new Vector3(0, -12, 0);
 
-    public int RemainingLives { get; private set; } = 7;
+    public int RemainingLives { get; private set; } = 3;
     public int LilypadsReached { get; private set; }
 
     private void Start()
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
-        if (RemainingLives > 1)
+        if (RemainingLives > 0)
         {
             transform.position = _startPos;
             RemainingLives--;

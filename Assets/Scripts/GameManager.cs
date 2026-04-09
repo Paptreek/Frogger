@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerObj;
+    [SerializeField] private GameObject _playerLivesObj;
     
     private PlayerController _player;
     private int _lilypadsReached;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         _lilypadsReached = _player.LilypadsReached;
         _remainingLives = _player.RemainingLives;
 
+        UpdateLives();
         CheckForGameOver();
     }
 
@@ -28,9 +30,27 @@ public class GameManager : MonoBehaviour
             Debug.Log("All five lilypads filled. You win!");
         }
 
-        if (_remainingLives <= 0)
+        if (_remainingLives < 0)
         {
             Debug.Log("All out of lives. You lose!");
+        }
+    }
+
+    private void UpdateLives()
+    {
+        Renderer[] lifeIcons = _playerLivesObj.GetComponentsInChildren<Renderer>();
+
+        if (_remainingLives == 2)
+        {
+            lifeIcons[2].enabled = false;
+        }
+        else if (_remainingLives == 1)
+        {
+            lifeIcons[1].enabled = false;
+        }
+        else if (_remainingLives == 0)
+        {
+            lifeIcons[0].enabled = false;
         }
     }
 }
