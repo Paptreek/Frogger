@@ -570,6 +570,7 @@ MonoBehaviour:
   _water: {fileID: 491986312}
   _logGroupObj: {fileID: 893796559}
   _turtleGroupObj: {fileID: 262002489}
+  _timeBar: {fileID: 1057631263}
 --- !u!50 &293844033
 Rigidbody2D:
   serializedVersion: 5
@@ -1946,6 +1947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _playerObj: {fileID: 293844028}
   _playerLivesObj: {fileID: 1523887226}
+  _timerBar: {fileID: 1057631263}
+  _scoreText: {fileID: 1423614829}
 --- !u!1 &771237048
 GameObject:
   m_ObjectHideFlags: 0

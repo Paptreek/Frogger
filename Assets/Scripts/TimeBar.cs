@@ -33,4 +33,10 @@ public class TimeBar : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.softRed;
         }
     }
+
+    public void ResetAll()
+    {
+        _timeRemaining = 45.0f;
+        _timeElapsed = 0;
+    }
 }

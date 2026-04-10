@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerObj;
     [SerializeField] private GameObject _playerLivesObj;
+    [SerializeField] private GameObject _timerBar;
+    [SerializeField] private TMP_Text _scoreText;
     
     private PlayerController _player;
     private int _lilypadsReached;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
 
         UpdateLives();
         CheckForGameOver();
+
+        _scoreText.text = $"SCORE: {_player.Score:000}";
     }
 
     private void CheckForGameOver()

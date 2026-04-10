@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _water;
     [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
+    [SerializeField] private GameObject _timeBar;
 
     private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
@@ -14,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private bool _isOnTurtle;
     private bool _isOnLog;
     private float _waterDeathTimer;
+    private int _playerRow = 1;
+    private int _highestRowReached = 1;
     private Vector3 _startPos = new Vector3(0, -12, 0);
 
     public int RemainingLives { get; private set; } = 3;
     public int LilypadsReached { get; private set; }
+    public int Score { get; private set; }
 
     private void Start()
     {
@@ -46,6 +51,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = _startPos;
             }
         }
+
+        Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
     }
 
     private Vector3 GetNewLocation()
@@ -67,10 +74,22 @@ public class PlayerController : MonoBehaviour
             }
             else if (moveValue.y == 1)
             {
+                _playerRow++;
+
+                if (_playerRow == _highestRowReached + 1)
+                {
+                    Score += 10;
+                    _highestRowReached++;
+
+                    Debug.Log(Score);
+                }
+
                 return new Vector3(x, y + 2, 0);
             }
             else if (moveValue.y == -1)
             {
+                _playerRow--;
+
                 return new Vector3(x, y - 2, 0);
             }
             else
@@ -109,6 +128,8 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
+            ResetPlayer();
+
             LilypadsReached++;
             transform.position = _startPos;
             //Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
@@ -181,6 +202,7 @@ public class PlayerController : MonoBehaviour
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
             {
                 _waterDeathTimer = 0.5f;
+                Score -= 10;
                 Kill();
 
                 //Debug.Log($"ded from water! lives remaining: {RemainingLives}");
@@ -190,6 +212,8 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
+        ResetPlayer();
+
         if (RemainingLives > 0)
         {
             transform.position = _startPos;
@@ -200,6 +224,14 @@ public class PlayerController : MonoBehaviour
             RemainingLives--;
             Destroy(gameObject);
         }
-
     }
+ 
+    private void ResetPlayer()
+    {
+        _playerRow = 1;
+        _highestRowReached = 1;
+
+        _timeBar.GetComponent<TimeBar>().ResetAll();
+    }
+
 }
