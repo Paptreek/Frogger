@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _water;
     [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
-    [SerializeField] private GameObject _timeBar;
+    [SerializeField] private GameObject _timeBarObj;
 
     private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
+    private TimeBar _timeBar;
 
     private bool _isOnTurtle;
     private bool _isOnLog;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         _moveAction = InputSystem.actions.FindAction("Move");
         _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
         _logGroup = _logGroupObj.GetComponent<LogGroup>();
+        _timeBar = _timeBarObj.GetComponent<TimeBar>();
     }
 
     private void Update()
@@ -50,6 +52,11 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = _startPos;
             }
+        }
+
+        if (_timeBar.TimeRemaining <= 0)
+        {
+            Kill();
         }
 
         Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
@@ -129,6 +136,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Lilypad"))
         {
             ResetPlayer();
+            _timeBar.ResetTimerAddPoints();
 
             LilypadsReached++;
             transform.position = _startPos;
@@ -213,6 +221,7 @@ public class PlayerController : MonoBehaviour
     private void Kill()
     {
         ResetPlayer();
+        _timeBar.ResetTimer();
 
         if (RemainingLives > 0)
         {
@@ -223,6 +232,7 @@ public class PlayerController : MonoBehaviour
         {
             RemainingLives--;
             Destroy(gameObject);
+            _timeBarObj.SetActive(false);
         }
     }
  
@@ -230,8 +240,5 @@ public class PlayerController : MonoBehaviour
     {
         _playerRow = 1;
         _highestRowReached = 1;
-
-        _timeBar.GetComponent<TimeBar>().ResetAll();
     }
-
 }
