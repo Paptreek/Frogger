@@ -7,13 +7,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _playerLivesObj;
     [SerializeField] private GameObject _timerBarObj;
     [SerializeField] private TMP_Text _scoreText;
+    [SerializeField] private TMP_Text _highScoreText;
+    [SerializeField] private TMP_Text _countdownText;
     
     private PlayerController _player;
     private TimeBar _timeBar;
 
     private int _lilypadsReached;
     private int _remainingLives;
-    private int _playerScore;
+    private int _currentScore;
+    private float _initialCountdown = 5;
 
     private void Start()
     {
@@ -23,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        StartInitialCountdown();
+
         _lilypadsReached = _player.LilypadsReached;
         _remainingLives = _player.RemainingLives;
 
@@ -30,7 +35,13 @@ public class GameManager : MonoBehaviour
         CalculateScore();
         CheckForGameOver();
 
-        _scoreText.text = $"SCORE: {_playerScore:000}";
+        if (_currentScore > GetHighScore())
+        {
+            SetHighScore();
+        }
+
+        _scoreText.text = $"SCORE: {_currentScore:000}";
+        _highScoreText.text = $"HI-SCORE: {GetHighScore():000}";
     }
 
     private void CheckForGameOver()
@@ -64,8 +75,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void StartInitialCountdown()
+    {
+        if (_initialCountdown > 0)
+        {
+            _initialCountdown -= Time.deltaTime;
+        }
+
+        if (_initialCountdown > 0)
+        {
+            _countdownText.text = $"{_initialCountdown:0.0}";
+        }
+        if (_initialCountdown <= 0)
+        {
+            _countdownText.enabled = false;
+        }
+
+        if (_initialCountdown <= 0 && _playerObj != null)
+        {
+            _playerObj.SetActive(true);
+            _timerBarObj.SetActive(true);
+        }
+    }
+
     private void CalculateScore()
     {
-        _playerScore = _player.Score + _timeBar.LeftoverTime;
+        _currentScore = _player.Score + _timeBar.LeftoverTime;
+    }
+
+    private void SetHighScore()
+    {
+        PlayerPrefs.SetInt("HighScore", _currentScore);
+    }
+
+    private int GetHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore");
     }
 }

@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
             {
                 _waterDeathTimer = 0.5f;
-                Score -= 10;
+                //Score -= 10;
                 Kill();
 
                 //Debug.Log($"ded from water! lives remaining: {RemainingLives}");
