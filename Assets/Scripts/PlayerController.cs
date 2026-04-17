@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
             if (Mathf.Abs(transform.position.x) > 12.5f)
             {
-                transform.position = _startPos;
+                Kill();
             }
         }
 
@@ -130,7 +130,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Car"))
         {
             Kill();
-            //Debug.Log($"ded from car! lives remaining: {RemainingLives}");
         }
 
         if (collision.gameObject.CompareTag("Lilypad"))
@@ -140,7 +139,6 @@ public class PlayerController : MonoBehaviour
 
             LilypadsReached++;
             transform.position = _startPos;
-            //Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
         }
     }
 
@@ -210,10 +208,7 @@ public class PlayerController : MonoBehaviour
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
             {
                 _waterDeathTimer = 0.5f;
-                //Score -= 10;
                 Kill();
-
-                //Debug.Log($"ded from water! lives remaining: {RemainingLives}");
             }
         }
     }

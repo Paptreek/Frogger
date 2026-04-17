@@ -23,8 +23,6 @@ public class TimeBar : MonoBehaviour
             TimeRemaining -= Time.deltaTime;
             _timeElapsed += Time.deltaTime;
             gameObject.transform.localScale = new Vector3(TimeRemaining / 3, 1);
-
-            //Debug.Log(_timeRemaining);
         }
         else
         {

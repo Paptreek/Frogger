@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
             SetHighScore();
         }
 
-        _scoreText.text = $"SCORE: {_currentScore:000}";
-        _highScoreText.text = $"HI-SCORE: {GetHighScore():000}";
+        _scoreText.text = $"SCORE: {_currentScore:0000}";
+        _highScoreText.text = $"HI-SCORE: {GetHighScore():0000}";
     }
 
     private void CheckForGameOver()
