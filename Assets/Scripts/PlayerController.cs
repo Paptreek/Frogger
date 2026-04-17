@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,24 +7,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _water;
     [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
+    [SerializeField] private GameObject _timeBarObj;
 
     private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
+    private TimeBar _timeBar;
 
     private bool _isOnTurtle;
     private bool _isOnLog;
     private float _waterDeathTimer;
+    private int _playerRow = 1;
+    private int _highestRowReached = 1;
     private Vector3 _startPos = new Vector3(0, -12, 0);
 
-    public int RemainingLives { get; private set; } = 7;
+    public int RemainingLives { get; private set; } = 3;
     public int LilypadsReached { get; private set; }
+    public int Score { get; private set; }
 
     private void Start()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
         _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
         _logGroup = _logGroupObj.GetComponent<LogGroup>();
+        _timeBar = _timeBarObj.GetComponent<TimeBar>();
     }
 
     private void Update()
@@ -43,9 +50,16 @@ public class PlayerController : MonoBehaviour
 
             if (Mathf.Abs(transform.position.x) > 12.5f)
             {
-                transform.position = _startPos;
+                Kill();
             }
         }
+
+        if (_timeBar.TimeRemaining <= 0)
+        {
+            Kill();
+        }
+
+        Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
     }
 
     private Vector3 GetNewLocation()
@@ -67,10 +81,22 @@ public class PlayerController : MonoBehaviour
             }
             else if (moveValue.y == 1)
             {
+                _playerRow++;
+
+                if (_playerRow == _highestRowReached + 1)
+                {
+                    Score += 10;
+                    _highestRowReached++;
+
+                    Debug.Log(Score);
+                }
+
                 return new Vector3(x, y + 2, 0);
             }
             else if (moveValue.y == -1)
             {
+                _playerRow--;
+
                 return new Vector3(x, y - 2, 0);
             }
             else
@@ -104,14 +130,15 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Car"))
         {
             Kill();
-            //Debug.Log($"ded from car! lives remaining: {RemainingLives}");
         }
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
+            ResetPlayer();
+            _timeBar.ResetTimerAddPoints();
+
             LilypadsReached++;
             transform.position = _startPos;
-            //Debug.Log($"Scored a Point! Total Points: {LilypadsReached}");
         }
     }
 
@@ -182,15 +209,16 @@ public class PlayerController : MonoBehaviour
             {
                 _waterDeathTimer = 0.5f;
                 Kill();
-
-                //Debug.Log($"ded from water! lives remaining: {RemainingLives}");
             }
         }
     }
 
     private void Kill()
     {
-        if (RemainingLives > 1)
+        ResetPlayer();
+        _timeBar.ResetTimer();
+
+        if (RemainingLives > 0)
         {
             transform.position = _startPos;
             RemainingLives--;
@@ -199,7 +227,13 @@ public class PlayerController : MonoBehaviour
         {
             RemainingLives--;
             Destroy(gameObject);
+            _timeBarObj.SetActive(false);
         }
-
+    }
+ 
+    private void ResetPlayer()
+    {
+        _playerRow = 1;
+        _highestRowReached = 1;
     }
 }
