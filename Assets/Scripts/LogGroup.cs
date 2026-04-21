@@ -40,7 +40,7 @@ public class LogGroup : MonoBehaviour
 
     private void SpawnLogs()
     {
-        int x = -17;
+        int x = -19;
         int y = 4;
 
         for (int i = 0; i < _laneSpeeds.Length; i++)
@@ -53,7 +53,7 @@ public class LogGroup : MonoBehaviour
             if (_spawnTimers[i] <= 0)
             {
                 Logs.Add(CreateLog(x, y, _laneSpeeds[i]));
-                _spawnTimers[i] = Random.Range(2.0f, 3.0f);
+                _spawnTimers[i] = Random.Range(2.5f, 3.75f);
             }
 
             y += 2;

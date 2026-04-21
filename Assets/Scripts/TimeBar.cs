@@ -31,13 +31,13 @@ public class TimeBar : MonoBehaviour
 
         if (TimeRemaining <= 10.0f)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.softRed;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color32(158, 40, 53, 255);
         }
     }
 
     public void ResetTimer()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(46, 153, 82, 255);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(99, 198, 77, 255);
 
         TimeRemaining = 45.0f;
         _timeElapsed = 0;
