@@ -119,10 +119,10 @@ TextureImporter:
       name: player
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1129
-        width: 142
-        height: 142
+        x: 20
+        y: 1130
+        width: 120
+        height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: car1
       rect:
         serializedVersion: 2
-        x: 179
-        y: 1129
-        width: 282
-        height: 142
+        x: 180
+        y: 1130
+        width: 280
+        height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,13 +204,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle-red
+      name: lilypad
       rect:
         serializedVersion: 2
-        x: 650
-        y: 1130
-        width: 140
-        height: 140
+        x: 660
+        y: 1140
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,6 +221,28 @@ TextureImporter:
       bones: []
       spriteID: 2cab738aef7a7b748bf0d6415defc424
       internalID: 1241145513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 810
+        width: 260
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a5df5195f50724fadb7befbd56622d
+      internalID: 719371326
       vertices: []
       indices: 
       edges: []
@@ -239,13 +261,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":2,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       car1: -6251682230944352461
+      car2: 719371326
+      lilypad: 1241145513
       log: 1937352833
       player: 8020143640844766479
       turtle: -678246701
-      turtle-red: 1241145513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
