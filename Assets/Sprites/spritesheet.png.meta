@@ -313,6 +313,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lilypadFull
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1130
+        width: 120
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90395e54e3d434a45ba491c35902817a
+      internalID: 99040935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -335,6 +357,7 @@ TextureImporter:
       car4: -1115637873
       car5: 1955936390
       lilypad: 1241145513
+      lilypadFull: 99040935
       log: 1937352833
       player: 8020143640844766479
       turtle: -678246701
