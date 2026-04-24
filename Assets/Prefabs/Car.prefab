@@ -89,7 +89,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.8, y: 1.4}
+  m_Size: {x: 2.6, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -132,13 +132,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6, y: 1.4}
-    newSize: {x: 2.8, y: 1.4}
+    oldSize: {x: 3.6, y: 1.4}
+    newSize: {x: 2.6, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.5, y: 1.42}
+  m_Size: {x: 3.6, y: 1.42}
   m_EdgeRadius: 0
 --- !u!50 &898648033703901857
 Rigidbody2D:
@@ -179,5 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56b92d0054583448b6753cbe8840f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  _carSpriteOne: {fileID: -6251682230944352461, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
-  _carSpriteTwo: {fileID: 719371326, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _carSpriteOne: {fileID: 719371326, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _carSpriteTwo: {fileID: -6251682230944352461, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _carSpriteThree: {fileID: 313911173, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _carSpriteFour: {fileID: -1115637873, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _carSpriteFive: {fileID: 1955936390, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}

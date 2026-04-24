@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car1
+      name: car2
       rect:
         serializedVersion: 2
         x: 180
@@ -226,7 +226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car2
+      name: car1
       rect:
         serializedVersion: 2
         x: 30
@@ -247,6 +247,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: car4
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1130
+        width: 270
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038faeaa1db81d345a7f95477e6cf551
+      internalID: -1115637873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 810
+        width: 260
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa95822e5d89b814596c9234aaed146d
+      internalID: 313911173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: car5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 810
+        width: 360
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d027343798f57f447af65f9addb04cc1
+      internalID: 1955936390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -263,8 +329,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      car1: -6251682230944352461
-      car2: 719371326
+      car1: 719371326
+      car2: -6251682230944352461
+      car3: 313911173
+      car4: -1115637873
+      car5: 1955936390
       lilypad: 1241145513
       log: 1937352833
       player: 8020143640844766479

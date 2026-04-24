@@ -587,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &293844029
 SpriteRenderer:
   serializedVersion: 2
@@ -720,9 +720,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 469568585}
   - component: {fileID: 469568584}
   m_Layer: 0
-  m_Name: Road (3)
+  m_Name: LaneFour
   m_TagString: ReverseLane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 656985650}
   - component: {fileID: 656985649}
   m_Layer: 0
-  m_Name: Road (2)
+  m_Name: LaneThree
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 1302182505}
   - component: {fileID: 1302182506}
   m_Layer: 0
-  m_Name: Road
+  m_Name: LaneOne
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 1523728162}
   - component: {fileID: 1523728161}
   m_Layer: 0
-  m_Name: Road (1)
+  m_Name: LaneTwo
   m_TagString: ReverseLane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3857,7 +3857,7 @@ GameObject:
   - component: {fileID: 1765612148}
   - component: {fileID: 1765612147}
   m_Layer: 0
-  m_Name: Road (4)
+  m_Name: LaneFive
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
