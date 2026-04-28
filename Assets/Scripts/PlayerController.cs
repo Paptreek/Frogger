@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
     [SerializeField] private GameObject _timeBarObj;
+    [SerializeField] private GameObject _playerSprite;
 
     private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
     private TimeBar _timeBar;
+    private Animator _animator;
 
     private bool _isOnTurtle;
     private bool _isOnLog;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
         _logGroup = _logGroupObj.GetComponent<LogGroup>();
         _timeBar = _timeBarObj.GetComponent<TimeBar>();
+        _animator = _playerSprite.GetComponent<Animator>();
     }
 
     private void Update()
@@ -71,16 +74,23 @@ public class PlayerController : MonoBehaviour
 
         if (_moveAction.WasPressedThisFrame())
         {
+
+            _animator.SetTrigger("Move");
+            
             if (moveValue.x == -1)
             {
+                _playerSprite.transform.eulerAngles = new Vector3(0, 0, 90);
                 return new Vector3(x - 2, y, 0);
             }
             else if (moveValue.x == 1)
             {
+                _playerSprite.transform.eulerAngles = new Vector3(0, 0, -90);
                 return new Vector3(x + 2, y, 0);
             }
             else if (moveValue.y == 1)
             {
+                _playerSprite.transform.eulerAngles = new Vector3(0, 0, 0);
+
                 _playerRow++;
 
                 if (_playerRow == _highestRowReached + 1)
@@ -95,6 +105,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (moveValue.y == -1)
             {
+                _playerSprite.transform.eulerAngles = new Vector3(0, 0, 180);
+
                 _playerRow--;
 
                 return new Vector3(x, y - 2, 0);
