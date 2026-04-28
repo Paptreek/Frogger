@@ -335,6 +335,380 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: safeZone
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 550
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9952836dc63e849b533e28f7ac2771
+      internalID: -1955207517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: safeZone2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 550
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ef389e93d125f4eab45b3c2ab256d2
+      internalID: 1210704511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: safeZone3
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 550
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330b4baddd63eed4a8a27842f3431bf6
+      internalID: 237854231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: safeZone4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 550
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84d05bec755aac44bd174e5a9116f94
+      internalID: 776617694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadBottom1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 330
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c53b35821b8d0448151312c82b676f
+      internalID: 285752365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadMid1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 330
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff381a4e452da324f85764ef3f89bbdf
+      internalID: -1322395753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadTop1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 330
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18ca993b706f314c95f18dad6dca010
+      internalID: -1863447517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadBottom2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 110
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc10e35acd4fd84ca11c0688c1529a7
+      internalID: -958298470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadMid2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 110
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a0cd8ca4fa36614a8f38acd0dd0a8b4
+      internalID: -24426645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roadTop2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 110
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32da3d2cd1f4244b81530484c7e1118
+      internalID: -979701379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 330
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37eb84bbcfe583e41be055d335711e2d
+      internalID: -1842614955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass2
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 330
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e695799d704d494a906c4ab8b824f46
+      internalID: -1117669444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 110
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba3c582acc7127469fc8bc8d61a5646
+      internalID: 160606714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterFlow2
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 550
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668a7d71818323b4791c684e78c9d350
+      internalID: -1662588142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterFlow1
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 330
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb432ed5d6cf8c488cb81e6cdb671c7
+      internalID: 1633660339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterEdge1
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 110
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74c79b1cd09d5e43b699cfb649ef090
+      internalID: -1649268671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterEdge2
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 110
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae5e314d134ad949953390ca8409111
+      internalID: -136305865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -356,11 +730,28 @@ TextureImporter:
       car3: 313911173
       car4: -1115637873
       car5: 1955936390
+      grass: -1842614955
+      grass2: -1117669444
+      grass3: 160606714
       lilypad: 1241145513
       lilypadFull: 99040935
       log: 1937352833
       player: 8020143640844766479
+      roadBottom1: 285752365
+      roadBottom2: -958298470
+      roadMid1: -1322395753
+      roadMid2: -24426645
+      roadTop1: -1863447517
+      roadTop2: -979701379
+      safeZone: -1955207517
+      safeZone2: 1210704511
+      safeZone3: 237854231
+      safeZone4: 776617694
       turtle: -678246701
+      waterEdge1: -1649268671
+      waterEdge2: -136305865
+      waterFlow1: 1633660339
+      waterFlow2: -1662588142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
