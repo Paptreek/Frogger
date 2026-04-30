@@ -49,7 +49,7 @@ public class TimeBar : MonoBehaviour
 
         LeftoverTime += Convert.ToInt32(TimeRemaining);
 
-        Debug.Log($"Leftover Time Added: {LeftoverTime}");
+        // Debug.Log($"Leftover Time Added: {LeftoverTime}");
 
         TimeRemaining = 45.0f;
         _timeElapsed = 0;

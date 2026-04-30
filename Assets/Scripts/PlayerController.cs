@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             Kill();
         }
 
-        Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
+        // Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
     }
 
     private Vector3 GetNewLocation()
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
                     Score += 10;
                     _highestRowReached++;
 
-                    Debug.Log(Score);
+                    // Debug.Log(Score);
                 }
 
                 return new Vector3(x, y + 2, 0);

@@ -182,9 +182,9 @@ TextureImporter:
       name: log1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2351
-        width: 1090
+        x: 10
+        y: 2350
+        width: 1000
         height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -204,10 +204,10 @@ TextureImporter:
       name: log2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2170
-        width: 1090
-        height: 160
+        x: 10
+        y: 2150
+        width: 1000
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: log3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1960
-        width: 1090
-        height: 180
+        x: 10
+        y: 1950
+        width: 1000
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,6 +240,160 @@ TextureImporter:
       bones: []
       spriteID: 685abd9ade573e930800000000000000
       internalID: 4171307343492654470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turtle1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1770
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3ab55c78e1c23448291979fb9c45d8
+      internalID: 22348372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turtle2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1610
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71f7169d60f40443828422817751fe4
+      internalID: 6535585928781142361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turtle3
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1450
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae57608fb4540942b50fd53abf1e1f7
+      internalID: 5686551027206168840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sinkingTurtle1
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1770
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83af34ebc5c98874aaa7ba4439b1bb56
+      internalID: 762596117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sinkingTurtle2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1610
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d230a97ec6e7b654bbe93ee06d64903a
+      internalID: 932958276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sinkingTurtle3
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1450
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa33b70da5e39743836e1f8e02b28ea
+      internalID: -1353863289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sinkingTurtleEmpty
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1290
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c145dc9f5145f347982c07e7f08fd92
+      internalID: -2019779173
       vertices: []
       indices: 
       edges: []
@@ -260,8 +414,6 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      animationSheet_0: -3735923634318874486
-      animationSheet_1: 6535585928781142361
       animationSheet_10: 1376878293203090931
       animationSheet_12: 1440849894732890098
       animationSheet_13: -2489322923381114042
@@ -270,7 +422,6 @@ TextureImporter:
       animationSheet_16: 2216298621619953177
       animationSheet_17: 6786361338666704314
       animationSheet_19: 8686815965608829372
-      animationSheet_2: 5686551027206168840
       animationSheet_20: -7372376152280642715
       animationSheet_21: 6865989514093060506
       animationSheet_22: 3023204609701011318
@@ -284,6 +435,13 @@ TextureImporter:
       log1: 4932149480878086010
       log2: 4688106239370150038
       log3: 4171307343492654470
+      sinkingTurtle1: 762596117
+      sinkingTurtle2: 932958276
+      sinkingTurtle3: -1353863289
+      sinkingTurtleEmpty: -2019779173
+      turtle1: -3735923634318874486
+      turtle2: 6535585928781142361
+      turtle3: 5686551027206168840
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

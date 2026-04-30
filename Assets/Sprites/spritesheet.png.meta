@@ -622,50 +622,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: waterFlow2
-      rect:
-        serializedVersion: 2
-        x: 1060
-        y: 550
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 668a7d71818323b4791c684e78c9d350
-      internalID: -1662588142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: waterFlow1
-      rect:
-        serializedVersion: 2
-        x: 1060
-        y: 330
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2eb432ed5d6cf8c488cb81e6cdb671c7
-      internalID: 1633660339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: waterEdge1
       rect:
         serializedVersion: 2
