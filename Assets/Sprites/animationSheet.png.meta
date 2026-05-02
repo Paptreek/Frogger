@@ -377,23 +377,177 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sinkingTurtleEmpty
+      name: frog_death_1
       rect:
         serializedVersion: 2
-        x: 485
+        x: 10
         y: 1290
-        width: 460
+        width: 140
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c145dc9f5145f347982c07e7f08fd92
-      internalID: -2019779173
+      spriteID: cd55f1d3cd403654a84c8d06becff5b3
+      internalID: 1642790553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1290
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a0fc3b1cff41747884079f4d7554b1
+      internalID: -2080630041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1290
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c8d8ba8f2784e4da82bb90e4011724
+      internalID: -998063890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_4
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1290
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031e1883c46547a40acbedc2f3401012
+      internalID: 378735747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_5
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1290
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f72e3444041fe542a04e240276c9279
+      internalID: 861865827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_6
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1291
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648afb01cf11e5b478503d08a861b871
+      internalID: -734843421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sinkingTurtleEmpty
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1450
+        width: 460
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ce107a657e33c43bab1ffcf9bb424c
+      internalID: 705021881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_death_empty
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 1290
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deedaecc28c81664c903c06bbe4234cf
+      internalID: 207115548
       vertices: []
       indices: 
       edges: []
@@ -432,13 +586,20 @@ TextureImporter:
       animationSheet_7: -6505920157074695137
       animationSheet_8: 217578718459824253
       animationSheet_9: -6162145575070165433
+      frog_death_1: 1642790553
+      frog_death_2: -2080630041
+      frog_death_3: -998063890
+      frog_death_4: 378735747
+      frog_death_5: 861865827
+      frog_death_6: -734843421
+      frog_death_empty: 207115548
       log1: 4932149480878086010
       log2: 4688106239370150038
       log3: 4171307343492654470
       sinkingTurtle1: 762596117
       sinkingTurtle2: 932958276
       sinkingTurtle3: -1353863289
-      sinkingTurtleEmpty: -2019779173
+      sinkingTurtleEmpty: 705021881
       turtle1: -3735923634318874486
       turtle2: 6535585928781142361
       turtle3: 5686551027206168840

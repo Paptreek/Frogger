@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -74,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
         if (_moveAction.WasPressedThisFrame())
         {
-
             _animator.SetTrigger("Move");
             
             if (moveValue.x == -1)
@@ -150,7 +148,6 @@ public class PlayerController : MonoBehaviour
             _timeBar.ResetTimerAddPoints();
 
             LilypadsReached++;
-            transform.position = _startPos;
         }
     }
 
@@ -227,17 +224,17 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
-        ResetPlayer();
-        _timeBar.ResetTimer();
+        RemainingLives--;
 
-        if (RemainingLives > 0)
+        _animator.SetTrigger("Die");
+
+        if (RemainingLives >= 0)
         {
-            transform.position = _startPos;
-            RemainingLives--;
+            ResetPlayer();
+            _timeBar.ResetTimer();
         }
         else
         {
-            RemainingLives--;
             Destroy(gameObject);
             _timeBarObj.SetActive(false);
         }
@@ -245,6 +242,7 @@ public class PlayerController : MonoBehaviour
  
     private void ResetPlayer()
     {
+        transform.position = _startPos;
         _playerRow = 1;
         _highestRowReached = 1;
     }
