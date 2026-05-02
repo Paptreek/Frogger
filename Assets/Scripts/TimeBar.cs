@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TimeBar : MonoBehaviour
 {
+    [SerializeField] private GameObject _playerObject;
+    
     private float _timeElapsed = 0;
     private float _startingPosX;
 
@@ -18,7 +20,7 @@ public class TimeBar : MonoBehaviour
     {
         transform.position = new Vector3(_startingPosX + _timeElapsed / 6, -14);
 
-        if (TimeRemaining >= 0)
+        if (TimeRemaining >= 0 && _playerObject.activeInHierarchy)
         {
             TimeRemaining -= Time.deltaTime;
             _timeElapsed += Time.deltaTime;

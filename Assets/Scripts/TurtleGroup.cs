@@ -66,7 +66,7 @@ public class TurtleGroup : MonoBehaviour
         float coinFlip = Random.Range(0.0f, 1.0f);
         GameObject tempObject;
 
-        if (coinFlip <= 0.50)
+        if (coinFlip <= 0.75)
         {
             tempObject = Instantiate(_turtleObj, new Vector3(x, y, 0), transform.rotation);
             tempObject.GetComponent<Turtle>().MoveSpeed = moveSpeed;

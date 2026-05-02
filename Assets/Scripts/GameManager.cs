@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int _lilypadsReached;
     private int _remainingLives;
     private int _currentScore;
-    private float _initialCountdown = 5;
+    private float _initialCountdown = 3;
 
     private void Start()
     {

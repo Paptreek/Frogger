@@ -701,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &293844029
 SpriteRenderer:
   serializedVersion: 2
@@ -751,7 +751,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8020143640844766479, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -759,7 +759,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &293844030
 Transform:
@@ -823,7 +823,9 @@ MonoBehaviour:
   _logGroupObj: {fileID: 893796559}
   _turtleGroupObj: {fileID: 262002489}
   _timeBarObj: {fileID: 1057631263}
-  _playerSprite: {fileID: 71445934}
+  _playerSpriteObj: {fileID: 71445934}
+  _defaultSprite: {fileID: 8020143640844766479, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _emptySprite: {fileID: 207115548, guid: 137ec06745f3c434e8ec148f4afdfd70, type: 3}
 --- !u!50 &293844033
 Rigidbody2D:
   serializedVersion: 5
@@ -2591,6 +2593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03657f73845a83458d3891954519631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeBar
+  _playerObject: {fileID: 293844028}
 --- !u!212 &1057631265
 SpriteRenderer:
   serializedVersion: 2
