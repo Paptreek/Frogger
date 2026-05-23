@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool _isDead;
     private bool _isOnTurtle;
     private bool _isOnLog;
-    private float _waterDeathTimer;
+    private float _deathTimer;
     private int _playerRow = 1;
     private int _highestRowReached = 1;
     private Vector3 _startPos = new Vector3(0, -12, 0);
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _waterDeathTimer -= Time.deltaTime;
+        _deathTimer -= Time.deltaTime;
 
         if (gameObject != null)
         {
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 CheckIfTouchingWater();
             }
 
-            if (Mathf.Abs(transform.position.x) > 12.5f)
+            if (Mathf.Abs(transform.position.x) > 12.5f && _deathTimer <=0)
             {
                 Kill();
             }
@@ -223,9 +223,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isOnTurtle && !_isOnLog)
         {
-            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
+            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _deathTimer <= 0)
             {
-                _waterDeathTimer = 0.5f;
+                //_deathTimer = 0.5f;
                 Kill();
             }
         }
@@ -233,6 +233,8 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
+        _deathTimer = 1.0f;
+
         _isDead = true;
         _canMove = false;
 
