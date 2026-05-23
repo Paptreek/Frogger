@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,12 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _logGroupObj;
     [SerializeField] private GameObject _turtleGroupObj;
     [SerializeField] private GameObject _timeBarObj;
+    [SerializeField] private GameObject _playerSpriteObj;
+
+    [SerializeField] private Sprite _defaultSprite;
+    [SerializeField] private Sprite _emptySprite;
 
     private LogGroup _logGroup;
     private TurtleGroup _turtleGroup;
     private InputAction _moveAction;
     private TimeBar _timeBar;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
+    private bool _canMove = true;
+    private bool _isDead;
     private bool _isOnTurtle;
     private bool _isOnLog;
     private float _waterDeathTimer;
@@ -31,6 +38,8 @@ public class PlayerController : MonoBehaviour
         _turtleGroup = _turtleGroupObj.GetComponent<TurtleGroup>();
         _logGroup = _logGroupObj.GetComponent<LogGroup>();
         _timeBar = _timeBarObj.GetComponent<TimeBar>();
+        _animator = _playerSpriteObj.GetComponent<Animator>();
+        _spriteRenderer = _playerSpriteObj.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -59,7 +68,9 @@ public class PlayerController : MonoBehaviour
             Kill();
         }
 
-        Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
+        TryRespawn();
+
+        // Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
     }
 
     private Vector3 GetNewLocation()
@@ -69,18 +80,24 @@ public class PlayerController : MonoBehaviour
         float x = transform.position.x;
         float y = transform.position.y;
 
-        if (_moveAction.WasPressedThisFrame())
+        if (_canMove && _moveAction.WasPressedThisFrame())
         {
+            _animator.SetTrigger("Move");
+            
             if (moveValue.x == -1)
             {
+                _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, 90);
                 return new Vector3(x - 2, y, 0);
             }
             else if (moveValue.x == 1)
             {
+                _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, -90);
                 return new Vector3(x + 2, y, 0);
             }
             else if (moveValue.y == 1)
             {
+                _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, 0);
+
                 _playerRow++;
 
                 if (_playerRow == _highestRowReached + 1)
@@ -88,13 +105,15 @@ public class PlayerController : MonoBehaviour
                     Score += 10;
                     _highestRowReached++;
 
-                    Debug.Log(Score);
+                    // Debug.Log(Score);
                 }
 
                 return new Vector3(x, y + 2, 0);
             }
             else if (moveValue.y == -1)
             {
+                _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, 180);
+
                 _playerRow--;
 
                 return new Vector3(x, y - 2, 0);
@@ -138,7 +157,6 @@ public class PlayerController : MonoBehaviour
             _timeBar.ResetTimerAddPoints();
 
             LilypadsReached++;
-            transform.position = _startPos;
         }
     }
 
@@ -215,25 +233,46 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
-        ResetPlayer();
-        _timeBar.ResetTimer();
+        _isDead = true;
+        _canMove = false;
 
-        if (RemainingLives > 0)
+        _animator.SetBool("isDead", true);
+        _animator.SetTrigger("Die");
+
+        GetComponent<BoxCollider2D>().enabled = false;
+        
+        RemainingLives--;
+    }
+
+    private void TryRespawn()
+    {
+        if (_isDead && _spriteRenderer.sprite == _emptySprite)
         {
-            transform.position = _startPos;
-            RemainingLives--;
-        }
-        else
-        {
-            RemainingLives--;
-            Destroy(gameObject);
-            _timeBarObj.SetActive(false);
+            if (RemainingLives >= 0)
+            {
+                ResetPlayer();
+            }
+            else
+            {
+                Destroy(gameObject);
+                _timeBarObj.SetActive(false);
+            }
         }
     }
  
     private void ResetPlayer()
     {
+        transform.position = _startPos;
         _playerRow = 1;
         _highestRowReached = 1;
+
+        GetComponent<BoxCollider2D>().enabled = true;
+        _canMove = true;
+        _isDead = false;
+
+        _animator.SetBool("isDead", false);
+        _timeBar.ResetTimer();
+
+        _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }

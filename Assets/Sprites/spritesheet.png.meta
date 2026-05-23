@@ -116,12 +116,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player
+      name: frog1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 10
         y: 1130
-        width: 120
+        width: 140
         height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -317,9 +317,9 @@ TextureImporter:
       name: lilypadFull
       rect:
         serializedVersion: 2
-        x: 1140
+        x: 1130
         y: 1130
-        width: 120
+        width: 140
         height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -622,50 +622,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: waterFlow2
-      rect:
-        serializedVersion: 2
-        x: 1060
-        y: 550
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 668a7d71818323b4791c684e78c9d350
-      internalID: -1662588142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: waterFlow1
-      rect:
-        serializedVersion: 2
-        x: 1060
-        y: 330
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2eb432ed5d6cf8c488cb81e6cdb671c7
-      internalID: 1633660339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: waterEdge1
       rect:
         serializedVersion: 2
@@ -709,6 +665,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: frog2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 800
+        width: 140
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bd25ca59beb344484948df557df584
+      internalID: -1178669318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -730,13 +708,14 @@ TextureImporter:
       car3: 313911173
       car4: -1115637873
       car5: 1955936390
+      frog1: 8020143640844766479
+      frog2: -1178669318
       grass: -1842614955
       grass2: -1117669444
       grass3: 160606714
       lilypad: 1241145513
       lilypadFull: 99040935
       log: 1937352833
-      player: 8020143640844766479
       roadBottom1: 285752365
       roadBottom2: -958298470
       roadMid1: -1322395753

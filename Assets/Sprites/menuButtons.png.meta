@@ -1,76 +1,61 @@
 fileFormatVersion: 2
-guid: 137ec06745f3c434e8ec148f4afdfd70
+guid: 16bf04818de985c4cb1689c219e3aaf3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3735923634318874486
-    second: animationSheet_0
+      213: -1780020970381023785
+    second: menuButtons_0
   - first:
-      213: 6535585928781142361
-    second: animationSheet_1
+      213: -8116832724500392004
+    second: menuButtons_1
   - first:
-      213: 5686551027206168840
-    second: animationSheet_2
+      213: -707739129474786754
+    second: menuButtons_2
   - first:
-      213: 4932149480878086010
-    second: animationSheet_3
+      213: 7280839829642279632
+    second: menuButtons_3
   - first:
-      213: 1986659058108359842
-    second: animationSheet_4
+      213: 2336153471372345366
+    second: menuButtons_4
   - first:
-      213: 603020249544183512
-    second: animationSheet_5
+      213: 3935665286337446304
+    second: menuButtons_5
   - first:
-      213: -34745826303748390
-    second: animationSheet_6
+      213: -9032804725579345939
+    second: menuButtons_6
   - first:
-      213: -6505920157074695137
-    second: animationSheet_7
+      213: -2615596019402466097
+    second: menuButtons_7
   - first:
-      213: 217578718459824253
-    second: animationSheet_8
+      213: 1478044937784890903
+    second: menuButtons_8
   - first:
-      213: -6162145575070165433
-    second: animationSheet_9
+      213: 7575878238149892078
+    second: menuButtons_9
   - first:
-      213: 1376878293203090931
-    second: animationSheet_10
+      213: -2903778761981027579
+    second: menuButtons_10
   - first:
-      213: 4688106239370150038
-    second: animationSheet_11
+      213: 354925229277916918
+    second: menuButtons_11
   - first:
-      213: 1440849894732890098
-    second: animationSheet_12
+      213: 4498478047934019983
+    second: menuButtons_12
   - first:
-      213: -2489322923381114042
-    second: animationSheet_13
+      213: 4864009481556889637
+    second: menuButtons_13
   - first:
-      213: 7639112840034316750
-    second: animationSheet_14
+      213: -5076404728551737844
+    second: menuButtons_14
   - first:
-      213: -6260342955860489246
-    second: animationSheet_15
+      213: 7734695422203015403
+    second: menuButtons_15
   - first:
-      213: 2216298621619953177
-    second: animationSheet_16
+      213: 2510036117152469827
+    second: menuButtons_16
   - first:
-      213: 6786361338666704314
-    second: animationSheet_17
-  - first:
-      213: 4171307343492654470
-    second: animationSheet_18
-  - first:
-      213: 8686815965608829372
-    second: animationSheet_19
-  - first:
-      213: -7372376152280642715
-    second: animationSheet_20
-  - first:
-      213: 6865989514093060506
-    second: animationSheet_21
-  - first:
-      213: 3023204609701011318
-    second: animationSheet_22
+      213: 5543187853987744402
+    second: menuButtons_17
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -179,13 +164,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: log1
+      name: play
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2350
-        width: 1000
-        height: 200
+        x: 9
+        y: 2389
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a779dda32d3827440800000000000000
-      internalID: 4932149480878086010
+      spriteID: 7d561bfbb581c47e0800000000000000
+      internalID: -1780020970381023785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: log2
+      name: options
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2150
-        width: 1000
-        height: 200
+        x: 509
+        y: 2389
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69043fa39cf7f0140800000000000000
-      internalID: 4688106239370150038
+      spriteID: cb753e254a73b5f80800000000000000
+      internalID: -8116832724500392004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: log3
+      name: quit
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1950
-        width: 1000
-        height: 200
+        x: 1209
+        y: 2389
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,316 +223,338 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 685abd9ade573e930800000000000000
-      internalID: 4171307343492654470
+      spriteID: e3ad202f20b9d26f0800000000000000
+      internalID: -707739129474786754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle1
+      name: mute
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1770
-        width: 460
-        height: 140
+        x: 1709
+        y: 2389
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b3ab55c78e1c23448291979fb9c45d8
-      internalID: 22348372
+      spriteID: 0daf750ef3dba0560800000000000000
+      internalID: 7280839829642279632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle2
+      name: playHigh
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1610
-        width: 460
-        height: 140
+        x: 9
+        y: 2209
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c71f7169d60f40443828422817751fe4
-      internalID: 6535585928781142361
+      spriteID: 610c1f9643fab6020800000000000000
+      internalID: 2336153471372345366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle3
+      name: optionsHigh
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1450
-        width: 460
-        height: 140
+        x: 509
+        y: 2209
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2ae57608fb4540942b50fd53abf1e1f7
-      internalID: 5686551027206168840
+      spriteID: 0a1caf2d9ba4e9630800000000000000
+      internalID: 3935665286337446304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sinkingTurtle1
+      name: quitHigh
       rect:
         serializedVersion: 2
-        x: 485
-        y: 1770
-        width: 460
-        height: 140
+        x: 1209
+        y: 2209
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 83af34ebc5c98874aaa7ba4439b1bb56
-      internalID: 762596117
+      spriteID: def8f5eb5f705a280800000000000000
+      internalID: -9032804725579345939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sinkingTurtle2
+      name: muteHigh
       rect:
         serializedVersion: 2
-        x: 485
-        y: 1610
-        width: 460
-        height: 140
+        x: 1709
+        y: 2209
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d230a97ec6e7b654bbe93ee06d64903a
-      internalID: 932958276
+      spriteID: fcc1793474983bbd0800000000000000
+      internalID: -2615596019402466097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sinkingTurtle3
+      name: back
       rect:
         serializedVersion: 2
-        x: 485
-        y: 1450
-        width: 460
-        height: 140
+        x: 9
+        y: 2029
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7fa33b70da5e39743836e1f8e02b28ea
-      internalID: -1353863289
+      spriteID: 7169bb63a02138410800000000000000
+      internalID: 1478044937784890903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_1
+      name: resume
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1290
-        width: 140
-        height: 140
+        x: 509
+        y: 2029
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cd55f1d3cd403654a84c8d06becff5b3
-      internalID: 1642790553
+      spriteID: ee7598e6e1de22960800000000000000
+      internalID: 7575878238149892078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_2
+      name: unmute
       rect:
         serializedVersion: 2
-        x: 170
-        y: 1290
-        width: 140
-        height: 140
+        x: 1209
+        y: 2029
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d7a0fc3b1cff41747884079f4d7554b1
-      internalID: -2080630041
+      spriteID: 50b1cc1d994b3b7d0800000000000000
+      internalID: -2903778761981027579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_3
+      name: backHigh
       rect:
         serializedVersion: 2
-        x: 330
-        y: 1290
-        width: 140
-        height: 140
+        x: 9
+        y: 1849
+        width: 482
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d1c8d8ba8f2784e4da82bb90e4011724
-      internalID: -998063890
+      spriteID: 6fe2fe49d92fce400800000000000000
+      internalID: 354925229277916918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_4
+      name: resumeHigh
       rect:
         serializedVersion: 2
-        x: 490
-        y: 1290
-        width: 140
-        height: 140
+        x: 509
+        y: 1849
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 031e1883c46547a40acbedc2f3401012
-      internalID: 378735747
+      spriteID: f89fffc53fdcd6e30800000000000000
+      internalID: 4498478047934019983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_5
+      name: unmuteHigh
       rect:
         serializedVersion: 2
-        x: 650
-        y: 1290
-        width: 140
-        height: 140
+        x: 1209
+        y: 1849
+        width: 682
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3f72e3444041fe542a04e240276c9279
-      internalID: 861865827
+      spriteID: 52094545ade608340800000000000000
+      internalID: 4864009481556889637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_6
+      name: restart
       rect:
         serializedVersion: 2
-        x: 810
-        y: 1291
-        width: 140
-        height: 140
+        x: 9
+        y: 1679
+        width: 722
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 648afb01cf11e5b478503d08a861b871
-      internalID: -734843421
+      spriteID: c067f8a9bccfc89b0800000000000000
+      internalID: -5076404728551737844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sinkingTurtleEmpty
+      name: restartHigh
       rect:
         serializedVersion: 2
-        x: 960
-        y: 1450
-        width: 460
-        height: 140
+        x: 749
+        y: 1679
+        width: 722
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 37ce107a657e33c43bab1ffcf9bb424c
-      internalID: 705021881
+      spriteID: be0304e9188275b60800000000000000
+      internalID: 7734695422203015403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog_death_empty
+      name: panelMenu
       rect:
         serializedVersion: 2
-        x: 970
-        y: 1290
-        width: 140
-        height: 140
+        x: 19
+        y: 1029
+        width: 802
+        height: 642
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: deedaecc28c81664c903c06bbe4234cf
-      internalID: 207115548
+      spriteID: 3431640cc8075d220800000000000000
+      internalID: 2510036117152469827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panelGameOver
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1069
+        width: 1362
+        height: 602
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a0330fbfb5dec40800000000000000
+      internalID: 5543187853987744402
       vertices: []
       indices: 
       edges: []
@@ -556,7 +563,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4218946fc2dc8cd4b952058dd071d494
+    spriteID: fb8ff49671ad7054bb83b9ea9c271c2a
     internalID: 0
     vertices: []
     indices: 
@@ -564,45 +571,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      animationSheet_10: 1376878293203090931
-      animationSheet_12: 1440849894732890098
-      animationSheet_13: -2489322923381114042
-      animationSheet_14: 7639112840034316750
-      animationSheet_15: -6260342955860489246
-      animationSheet_16: 2216298621619953177
-      animationSheet_17: 6786361338666704314
-      animationSheet_19: 8686815965608829372
-      animationSheet_20: -7372376152280642715
-      animationSheet_21: 6865989514093060506
-      animationSheet_22: 3023204609701011318
-      animationSheet_23: -1629655874
-      animationSheet_4: 1986659058108359842
-      animationSheet_5: 603020249544183512
-      animationSheet_6: -34745826303748390
-      animationSheet_7: -6505920157074695137
-      animationSheet_8: 217578718459824253
-      animationSheet_9: -6162145575070165433
-      frog_death_1: 1642790553
-      frog_death_2: -2080630041
-      frog_death_3: -998063890
-      frog_death_4: 378735747
-      frog_death_5: 861865827
-      frog_death_6: -734843421
-      frog_death_empty: 207115548
-      log1: 4932149480878086010
-      log2: 4688106239370150038
-      log3: 4171307343492654470
-      sinkingTurtle1: 762596117
-      sinkingTurtle2: 932958276
-      sinkingTurtle3: -1353863289
-      sinkingTurtleEmpty: 705021881
-      turtle1: -3735923634318874486
-      turtle2: 6535585928781142361
-      turtle3: 5686551027206168840
+      back: 1478044937784890903
+      backHigh: 354925229277916918
+      mute: 7280839829642279632
+      muteHigh: -2615596019402466097
+      options: -8116832724500392004
+      optionsHigh: 3935665286337446304
+      panelGameOver: 5543187853987744402
+      panelMenu: 2510036117152469827
+      play: -1780020970381023785
+      playHigh: 2336153471372345366
+      quit: -707739129474786754
+      quitHigh: -9032804725579345939
+      restart: -5076404728551737844
+      restartHigh: 7734695422203015403
+      resume: 7575878238149892078
+      resumeHigh: 4498478047934019983
+      unmute: -2903778761981027579
+      unmuteHigh: 4864009481556889637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
