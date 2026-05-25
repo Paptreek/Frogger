@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _highScoreText;
     [SerializeField] private TMP_Text _countdownText;
+
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _gameOverText;
+    [SerializeField] private GameObject _victoryText;
     
     private PlayerController _player;
     private TimeBar _timeBar;
@@ -48,12 +52,15 @@ public class GameManager : MonoBehaviour
     {
         if (_lilypadsReached == 5)
         {
-            Debug.Log("All five lilypads filled. You win!");
+            _gameOverPanel.SetActive(true);
+            _victoryText.SetActive(true);
+            _playerObj.SetActive(false);
         }
 
         if (_remainingLives < 0)
         {
-            Debug.Log("All out of lives. You lose!");
+            _gameOverPanel.SetActive(true);
+            _gameOverText.SetActive(true);
         }
     }
 
