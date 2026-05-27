@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -43,5 +44,11 @@ public class MenuManager : MonoBehaviour
     {
         Time.timeScale = 1;
         _screenPanel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("Title");
+        Time.timeScale = 1;
     }
 }

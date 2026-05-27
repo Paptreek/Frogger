@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             _gameOverPanel.SetActive(true);
             _gameOverText.SetActive(true);
+            _playerObj.SetActive(false);
         }
     }
 

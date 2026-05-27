@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (_timeBar.TimeRemaining <= 0)
+        if (_timeBar.TimeRemaining <= 0 && _deathTimer <= 0)
         {
             Kill();
         }
