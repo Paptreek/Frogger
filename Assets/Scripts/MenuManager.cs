@@ -6,27 +6,23 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject _screenPanel;
     [SerializeField] private GameObject _pauseMenuPanel;
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _gameOverPanel;
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (_gameOverPanel.activeInHierarchy == false)
         {
-            if (_screenPanel.activeInHierarchy == false)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                Time.timeScale = 0;
-                _screenPanel.SetActive(true);
-            }
-            else
-            {
-                //Time.timeScale = 1;
-                //_screenPanel.SetActive(false);
-
-                ResumeGame();
+                if (_screenPanel.activeInHierarchy == false)
+                {
+                    Time.timeScale = 0;
+                    _screenPanel.SetActive(true);
+                }
+                else
+                {
+                    ResumeGame();
+                }
             }
         }
 
@@ -49,6 +45,12 @@ public class MenuManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene("Title");
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Game");
         Time.timeScale = 1;
     }
 }

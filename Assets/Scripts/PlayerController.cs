@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _turtleGroupObj;
     [SerializeField] private GameObject _timeBarObj;
     [SerializeField] private GameObject _playerSpriteObj;
+    [SerializeField] private GameObject _playerMoveSoundObj;
+    [SerializeField] private GameObject _playerDeathSoundObj;
 
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _emptySprite;
@@ -18,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private TimeBar _timeBar;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private AudioSource _playerMoveSound;
+    private AudioSource _playerDeathSound;
 
     private bool _canMove = true;
     private bool _isDead;
@@ -40,6 +45,8 @@ public class PlayerController : MonoBehaviour
         _timeBar = _timeBarObj.GetComponent<TimeBar>();
         _animator = _playerSpriteObj.GetComponent<Animator>();
         _spriteRenderer = _playerSpriteObj.GetComponent<SpriteRenderer>();
+        _playerMoveSound = _playerMoveSoundObj.GetComponent<AudioSource>();
+        _playerDeathSound = _playerDeathSoundObj.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -83,6 +90,7 @@ public class PlayerController : MonoBehaviour
         if (_canMove && _moveAction.WasPressedThisFrame())
         {
             _animator.SetTrigger("Move");
+            _playerMoveSound.Play();
             
             if (moveValue.x == -1)
             {
@@ -153,10 +161,23 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
-            ResetPlayer();
+
             _timeBar.ResetTimerAddPoints();
 
             LilypadsReached++;
+            Debug.Log($"Lilypads reached: {LilypadsReached}");
+
+            if (LilypadsReached < 5)
+            {
+                ResetPlayer();
+            }
+            else
+            {
+                _timeBarObj.SetActive(false);
+                GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(_playerSpriteObj);
+                _canMove = false;
+            }
         }
     }
 
@@ -233,6 +254,8 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
+        _playerDeathSound.Play();
+
         _deathTimer = 1.0f;
 
         _isDead = true;
@@ -242,7 +265,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Die");
 
         GetComponent<BoxCollider2D>().enabled = false;
-        
+
         RemainingLives--;
     }
 
@@ -256,7 +279,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 2.0f);
                 _timeBarObj.SetActive(false);
             }
         }

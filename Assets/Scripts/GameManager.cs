@@ -54,14 +54,14 @@ public class GameManager : MonoBehaviour
         {
             _gameOverPanel.SetActive(true);
             _victoryText.SetActive(true);
-            _playerObj.SetActive(false);
+            //_playerObj.SetActive(false);
         }
 
         if (_remainingLives < 0)
         {
             _gameOverPanel.SetActive(true);
             _gameOverText.SetActive(true);
-            _playerObj.SetActive(false);
+            //_playerObj.SetActive(false);
         }
     }
 
