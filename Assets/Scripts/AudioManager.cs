@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class AudioManager : MonoBehaviour
         {
             _bgm.Play(); // may need to try public static to stop music from stacking on reset
         }
+
+        SceneManager.LoadScene("Title");
     }
 
-    public void ToggleAudioMute()
+    public static void ToggleAudioMute()
     {
         if (AudioListener.volume == 1)
         {

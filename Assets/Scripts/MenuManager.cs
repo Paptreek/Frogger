@@ -7,6 +7,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _screenPanel;
     [SerializeField] private GameObject _pauseMenuPanel;
     [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _muteButton;
+    [SerializeField] private GameObject _unmuteButton;
 
     void Update()
     {

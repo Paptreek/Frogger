@@ -6,13 +6,6 @@ public class TitleScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject _frog;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -24,5 +17,10 @@ public class TitleScreenManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void ToggleMute()
+    {
+        MusicManager.ToggleMute();
     }
 }
