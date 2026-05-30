@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _turtleGroupObj;
     [SerializeField] private GameObject _timeBarObj;
     [SerializeField] private GameObject _playerSpriteObj;
+    [SerializeField] private GameObject _playerMoveSoundObj;
+    [SerializeField] private GameObject _playerDeathSoundObj;
 
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _emptySprite;
@@ -18,12 +21,14 @@ public class PlayerController : MonoBehaviour
     private TimeBar _timeBar;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private AudioSource _playerMoveSound;
+    private AudioSource _playerDeathSound;
 
     private bool _canMove = true;
     private bool _isDead;
     private bool _isOnTurtle;
     private bool _isOnLog;
-    private float _waterDeathTimer;
+    private float _deathTimer;
     private int _playerRow = 1;
     private int _highestRowReached = 1;
     private Vector3 _startPos = new Vector3(0, -12, 0);
@@ -40,11 +45,13 @@ public class PlayerController : MonoBehaviour
         _timeBar = _timeBarObj.GetComponent<TimeBar>();
         _animator = _playerSpriteObj.GetComponent<Animator>();
         _spriteRenderer = _playerSpriteObj.GetComponent<SpriteRenderer>();
+        _playerMoveSound = _playerMoveSoundObj.GetComponent<AudioSource>();
+        _playerDeathSound = _playerDeathSoundObj.GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        _waterDeathTimer -= Time.deltaTime;
+        _deathTimer -= Time.deltaTime;
 
         if (gameObject != null)
         {
@@ -57,13 +64,13 @@ public class PlayerController : MonoBehaviour
                 CheckIfTouchingWater();
             }
 
-            if (Mathf.Abs(transform.position.x) > 12.5f)
+            if (Mathf.Abs(transform.position.x) > 12.5f && _deathTimer <=0)
             {
                 Kill();
             }
         }
 
-        if (_timeBar.TimeRemaining <= 0)
+        if (_timeBar.TimeRemaining <= 0 && _deathTimer <= 0)
         {
             Kill();
         }
@@ -83,6 +90,7 @@ public class PlayerController : MonoBehaviour
         if (_canMove && _moveAction.WasPressedThisFrame())
         {
             _animator.SetTrigger("Move");
+            _playerMoveSound.Play();
             
             if (moveValue.x == -1)
             {
@@ -153,10 +161,23 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Lilypad"))
         {
-            ResetPlayer();
+
             _timeBar.ResetTimerAddPoints();
 
             LilypadsReached++;
+            Debug.Log($"Lilypads reached: {LilypadsReached}");
+
+            if (LilypadsReached < 5)
+            {
+                ResetPlayer();
+            }
+            else
+            {
+                _timeBarObj.SetActive(false);
+                GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(_playerSpriteObj);
+                _canMove = false;
+            }
         }
     }
 
@@ -223,9 +244,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isOnTurtle && !_isOnLog)
         {
-            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _waterDeathTimer <= 0)
+            if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _deathTimer <= 0)
             {
-                _waterDeathTimer = 0.5f;
+                //_deathTimer = 0.5f;
                 Kill();
             }
         }
@@ -233,6 +254,10 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
+        _playerDeathSound.Play();
+
+        _deathTimer = 1.0f;
+
         _isDead = true;
         _canMove = false;
 
@@ -240,7 +265,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Die");
 
         GetComponent<BoxCollider2D>().enabled = false;
-        
+
         RemainingLives--;
     }
 
@@ -254,7 +279,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 2.0f);
                 _timeBarObj.SetActive(false);
             }
         }

@@ -6,10 +6,11 @@ public class LogGroup : MonoBehaviour
     [SerializeField] private GameObject _logObj;
     [SerializeField] private GameObject _player;
 
-    public List<GameObject> Logs { get; } = new List<GameObject>();
 
     private float[] _laneSpeeds = new float[3];
     private float[] _spawnTimers = new float[3];
+
+    public List<GameObject> Logs { get; } = new List<GameObject>();
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class LogGroup : MonoBehaviour
             _spawnTimers[i] = Random.Range(0.25f, 3.0f);
         }
 
-        Debug.Log($"{_laneSpeeds[0]}, {_laneSpeeds[1]}, {_laneSpeeds[2]}");
+        Debug.Log($"Log Speeds: {_laneSpeeds[0]}, {_laneSpeeds[1]}, {_laneSpeeds[2]}");
     }
 
     private void Update()

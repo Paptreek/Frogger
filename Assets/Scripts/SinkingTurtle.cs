@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SinkingTurtle : MonoBehaviour
 {
-    [SerializeField] private Sprite _empty;
-
     public float MoveSpeed { get; set; }
 
     private void Update()
@@ -21,7 +19,7 @@ public class SinkingTurtle : MonoBehaviour
 
     private void Sink()
     {
-        if (GetComponent<SpriteRenderer>().sprite == _empty)
+        if (GetComponent<SpriteRenderer>().sprite == null)
         {
             GetComponent<BoxCollider2D>().enabled = false;
         }
