@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _playerSpriteObj;
     [SerializeField] private GameObject _playerMoveSoundObj;
     [SerializeField] private GameObject _playerDeathSoundObj;
+    [SerializeField] private GameObject _lilypadSoundObj;
 
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _emptySprite;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private AudioSource _playerMoveSound;
     private AudioSource _playerDeathSound;
+    private AudioSource _lilypadSound;
 
     private bool _canMove = true;
     private bool _isDead;
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = _playerSpriteObj.GetComponent<SpriteRenderer>();
         _playerMoveSound = _playerMoveSoundObj.GetComponent<AudioSource>();
         _playerDeathSound = _playerDeathSoundObj.GetComponent<AudioSource>();
+        _lilypadSound = _lilypadSoundObj.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -163,6 +166,7 @@ public class PlayerController : MonoBehaviour
         {
 
             _timeBar.ResetTimerAddPoints();
+            _lilypadSound.Play();
 
             LilypadsReached++;
             Debug.Log($"Lilypads reached: {LilypadsReached}");
