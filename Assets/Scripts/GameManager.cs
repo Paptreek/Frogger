@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _victoryText;
-    
+
+    [SerializeField] private GameObject _carGroup;
+
+    private AudioListener _gameAudioListener;
+    private AudioListener _playerAudioListener;
     private PlayerController _player;
     private TimeBar _timeBar;
 
@@ -26,11 +30,14 @@ public class GameManager : MonoBehaviour
     {
         _player = _playerObj.GetComponent<PlayerController>();
         _timeBar = _timerBarObj.GetComponent<TimeBar>();
+        _gameAudioListener = GetComponent<AudioListener>();
+        _playerAudioListener = _playerObj.GetComponent<AudioListener>();
     }
 
     private void Update()
     {
         StartInitialCountdown();
+        SwitchAudioListener();
 
         _lilypadsReached = _player.LilypadsReached;
         _remainingLives = _player.RemainingLives;
@@ -48,20 +55,28 @@ public class GameManager : MonoBehaviour
         _highScoreText.text = $"HI-SCORE: {GetHighScore():0000}";
     }
 
+    // felt cute, might delete later
+    private void SwitchAudioListener()
+    {
+        if (_playerObj.activeInHierarchy)
+        {
+            _gameAudioListener.enabled = false;
+            _playerAudioListener.enabled = true;
+        }
+    }
+
     private void CheckForGameOver()
     {
         if (_lilypadsReached == 5)
         {
             _gameOverPanel.SetActive(true);
             _victoryText.SetActive(true);
-            //_playerObj.SetActive(false);
         }
 
         if (_remainingLives < 0)
         {
             _gameOverPanel.SetActive(true);
             _gameOverText.SetActive(true);
-            //_playerObj.SetActive(false);
         }
     }
 

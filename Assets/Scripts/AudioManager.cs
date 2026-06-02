@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!_bgm.isPlaying)
         {
-            _bgm.Play(); // may need to try public static to stop music from stacking on reset
+            _bgm.Play();
         }
 
         SceneManager.LoadScene("Title");

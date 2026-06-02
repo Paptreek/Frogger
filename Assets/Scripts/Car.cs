@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -8,31 +9,34 @@ public class Car : MonoBehaviour
     [SerializeField] private Sprite _carSpriteFour;
     [SerializeField] private Sprite _carSpriteFive;
 
-    [SerializeField] private GameObject _honkSoundObject;
-
-    private AudioSource _honkSound;
-
     private Vector2 _carOneCollider = new Vector2(2.6f, 1.42f);
     private Vector2 _carTwoCollider = new Vector2(2.82f, 1.42f);
     private Vector2 _carThreeCollider = new Vector2(2.6f, 1.42f);
     private Vector2 _carFourCollider = new Vector2(2.7f, 1.42f);
     private Vector2 _carFiveCollider = new Vector2(3.6f, 1.42f);
 
+    private Transform _playerTransform;
+    private float _honkTimer;
+
     public float MoveSpeed { get; set; } = 7.5f;
 
     private void Start()
     {
-        _honkSound = _honkSoundObject.GetComponent<AudioSource>();
+        _honkTimer = Random.Range(2.5f, 5.0f);
     }
 
     private void Update()
     {
+        _honkTimer -= Time.deltaTime;
+
         transform.Translate(new Vector3(MoveSpeed, 0, 0) * Time.deltaTime);
 
         if (Mathf.Abs(transform.position.x) > 30)
         {
             Destroy(gameObject);
         }
+
+        HonkIfNearPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,5 +75,28 @@ public class Car : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = _carSpriteFive;
             GetComponent<BoxCollider2D>().size = _carFiveCollider;
         }
+    }
+
+    private void HonkIfNearPlayer()
+    {
+        AudioSource honk = GetComponent<AudioSource>();
+
+        if (transform.position.y == _playerTransform.position.y)
+        {
+            //Debug.Log($"Car: {transform.position}, Player: {_playerTransform}");
+
+            if (_honkTimer <= 0)
+            {
+                honk.pitch = Random.Range(0.5f, 2.0f);
+                honk.Play();
+
+                _honkTimer = Random.Range(2.5f, 7.5f);
+            }
+        }
+    }
+
+    public void SetPlayerTransform(Transform transform)
+    {
+        _playerTransform = transform;
     }
 }
