@@ -184,3 +184,4 @@ MonoBehaviour:
   _carSpriteThree: {fileID: 313911173, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
   _carSpriteFour: {fileID: -1115637873, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
   _carSpriteFive: {fileID: 1955936390, guid: d41f2dac4b00f2440be6f686089b65ba, type: 3}
+  _honkSoundObject: {fileID: 0}

@@ -8,6 +8,10 @@ public class Car : MonoBehaviour
     [SerializeField] private Sprite _carSpriteFour;
     [SerializeField] private Sprite _carSpriteFive;
 
+    [SerializeField] private GameObject _honkSoundObject;
+
+    private AudioSource _honkSound;
+
     private Vector2 _carOneCollider = new Vector2(2.6f, 1.42f);
     private Vector2 _carTwoCollider = new Vector2(2.82f, 1.42f);
     private Vector2 _carThreeCollider = new Vector2(2.6f, 1.42f);
@@ -15,6 +19,11 @@ public class Car : MonoBehaviour
     private Vector2 _carFiveCollider = new Vector2(3.6f, 1.42f);
 
     public float MoveSpeed { get; set; } = 7.5f;
+
+    private void Start()
+    {
+        _honkSound = _honkSoundObject.GetComponent<AudioSource>();
+    }
 
     private void Update()
     {

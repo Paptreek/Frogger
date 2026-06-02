@@ -21,7 +21,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            //_ribbitSound.Play();
+            _ribbitSound.Play();
             Instantiate(_frog);
         }
 
