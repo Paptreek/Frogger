@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private GameObject _victoryText;
 
-    [SerializeField] private GameObject _carGroup;
-
     private AudioListener _gameAudioListener;
     private AudioListener _playerAudioListener;
     private PlayerController _player;
@@ -36,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        StartInitialCountdown();
+        RunCountdown();
         SwitchAudioListener();
 
         _lilypadsReached = _player.LilypadsReached;
@@ -98,7 +96,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StartInitialCountdown()
+    private void RunCountdown()
     {
         if (_initialCountdown > 0)
         {

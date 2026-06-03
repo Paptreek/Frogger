@@ -274,7 +274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7ee18dab7809248bc55353a8041249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SinkingTurtle
-  _empty: {fileID: -2019779173, guid: 137ec06745f3c434e8ec148f4afdfd70, type: 3}
 --- !u!95 &7046525538239163902
 Animator:
   serializedVersion: 7

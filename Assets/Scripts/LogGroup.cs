@@ -4,7 +4,6 @@ using UnityEngine;
 public class LogGroup : MonoBehaviour
 {
     [SerializeField] private GameObject _logObj;
-    [SerializeField] private GameObject _player;
 
     private float[] _laneSpeeds = new float[3];
     private float[] _spawnTimers = new float[3];

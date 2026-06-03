@@ -66,8 +66,6 @@ public class MenuManager : MonoBehaviour
 
     private void UpdateMuteButton()
     {
-        //Debug.Log($"Pause Panel: {_pauseMenuPanel.activeInHierarchy} Audio Listener: {AudioListener.volume}");
-
         if (_pauseMenuPanel.activeInHierarchy && !_optionsButton.activeInHierarchy)
         {
             if (AudioListener.volume == 1)

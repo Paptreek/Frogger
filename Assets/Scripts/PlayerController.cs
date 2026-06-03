@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,8 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _lilypadSoundObj;
     [SerializeField] private GameObject _victorySoundObj;
     [SerializeField] private GameObject _defeatSoundObj;
-
-    [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _emptySprite;
 
     private LogGroup _logGroup;
@@ -73,20 +70,18 @@ public class PlayerController : MonoBehaviour
                 CheckIfTouchingWater();
             }
 
-            if (Mathf.Abs(transform.position.x) > 12.5f && _deathTimer <=0)
+            if (Mathf.Abs(transform.position.x) > 12.5f && _deathTimer <= 0 && !IsDead)
             {
-                Kill();
+                KillPlayer();
             }
         }
 
         if (_timeBar.TimeRemaining <= 0 && _deathTimer <= 0)
         {
-            Kill();
+            KillPlayer();
         }
 
         TryRespawn();
-
-        // Debug.Log($"Player Row: {_playerRow} Highest Row: {_highestRowReached}");
     }
 
     private Vector3 GetNewLocation()
@@ -121,8 +116,6 @@ public class PlayerController : MonoBehaviour
                 {
                     Score += 10;
                     _highestRowReached++;
-
-                    // Debug.Log(Score);
                 }
 
                 return new Vector3(x, y + 2, 0);
@@ -165,7 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            Kill();
+            KillPlayer();
         }
 
         if (collision.gameObject.CompareTag("Lilypad"))
@@ -185,6 +178,7 @@ public class PlayerController : MonoBehaviour
             {
                 Score += RemainingLives * 250;
                 _victorySound.Play();
+                _playerSpriteObj.SetActive(false);
                 RemovePlayer();
             }
         }
@@ -195,13 +189,13 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < _turtleGroup.Turtles.Count; i++)
         {
             GameObject turtle = _turtleGroup.Turtles[i];
-            BoxCollider2D playerCol = gameObject.GetComponent<BoxCollider2D>();
+            BoxCollider2D playerCollider = gameObject.GetComponent<BoxCollider2D>();
 
             if (turtle != null)
             {
-                BoxCollider2D turtleCol = turtle.GetComponent<BoxCollider2D>();
+                BoxCollider2D turtleCollider = turtle.GetComponent<BoxCollider2D>();
 
-                if (playerCol.IsTouching(turtleCol))
+                if (playerCollider.IsTouching(turtleCollider))
                 {
                     _isOnTurtle = true;
 
@@ -255,25 +249,25 @@ public class PlayerController : MonoBehaviour
         {
             if (gameObject.GetComponent<BoxCollider2D>().IsTouching(_water.GetComponent<BoxCollider2D>()) && _deathTimer <= 0)
             {
-                //_deathTimer = 0.5f;
-                Kill();
+                KillPlayer();
             }
         }
     }
 
-    private void Kill()
+    private void KillPlayer()
     {
         if (RemainingLives > 0)
         {
+            TryRespawn();
             _playerDeathSound.Play();
         }
         else
         {
+            RemovePlayer();
             _defeatSound.Play();
         }
 
         _deathTimer = 1.0f;
-
         IsDead = true;
         _canMove = false;
 
@@ -318,9 +312,9 @@ public class PlayerController : MonoBehaviour
 
     private void RemovePlayer()
     {
+        _animator.SetBool("isDead", true);
         _timeBarObj.SetActive(false);
         GetComponent<BoxCollider2D>().enabled = false;
-        Destroy(_playerSpriteObj);
         _canMove = false;
     }
 }
