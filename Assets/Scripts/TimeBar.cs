@@ -47,13 +47,7 @@ public class TimeBar : MonoBehaviour
 
     public void ResetTimerAddPoints()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(146, 220, 186, 255);
-
         LeftoverTime += Convert.ToInt32(TimeRemaining);
-
-        // Debug.Log($"Leftover Time Added: {LeftoverTime}");
-
-        TimeRemaining = 45.0f;
-        _timeElapsed = 0;
+        ResetTimer();
     }
 }

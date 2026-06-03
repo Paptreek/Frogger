@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class SinkingTurtle : MonoBehaviour
@@ -14,10 +13,10 @@ public class SinkingTurtle : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Sink();
+        DipUnderWater();
     }
 
-    private void Sink()
+    private void DipUnderWater()
     {
         if (GetComponent<SpriteRenderer>().sprite == null)
         {

@@ -5,7 +5,6 @@ public class TurtleGroup : MonoBehaviour
 {
     [SerializeField] private GameObject _turtleObj;
     [SerializeField] private GameObject _sinkingTurtleObj;
-    [SerializeField] private GameObject _player;
 
     private float[] _laneSpeeds = new float[2];
     private float[] _spawnTimers = new float[2];

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class TitleScreenFrog : MonoBehaviour
 {
-    [SerializeField] private Sprite _idleSprite;
-    [SerializeField] private Sprite _movingSprite;
     [SerializeField] private AnimationClip _moveAnimation;
 
     private Animator _animator;
