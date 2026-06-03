@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     // felt cute, might delete later
     private void SwitchAudioListener()
     {
-        if (_playerObj.activeInHierarchy)
+        if (_playerObj != null && _playerObj.activeInHierarchy)
         {
             _gameAudioListener.enabled = false;
             _playerAudioListener.enabled = true;

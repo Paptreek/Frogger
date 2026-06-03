@@ -64,6 +64,6 @@ public class CarGroup : MonoBehaviour
         GameObject tempObject = Instantiate(_carObj, new Vector3(x, y, 0), transform.rotation);
 
         tempObject.GetComponent<Car>().MoveSpeed = moveSpeed;
-        tempObject.GetComponent<Car>().SetPlayerTransform(_playerObj.transform);
+        tempObject.GetComponent<Car>().SetPlayerTransform(_playerObj);
     }
 }
