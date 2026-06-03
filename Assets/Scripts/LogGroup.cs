@@ -6,7 +6,6 @@ public class LogGroup : MonoBehaviour
     [SerializeField] private GameObject _logObj;
     [SerializeField] private GameObject _player;
 
-
     private float[] _laneSpeeds = new float[3];
     private float[] _spawnTimers = new float[3];
 
@@ -18,8 +17,6 @@ public class LogGroup : MonoBehaviour
 
         for (int i = 0; i < _laneSpeeds.Length; i++)
         {
-            //_laneSpeeds[i] = Random.Range(5.0f, 9.0f);
-
             _laneSpeeds[i] = startingSpeed;
             startingSpeed -= Random.Range(1.0f, 2.0f);
 
@@ -62,7 +59,7 @@ public class LogGroup : MonoBehaviour
             if (_spawnTimers[i] <= 0)
             {
                 Logs.Add(CreateLog(x, y, _laneSpeeds[i]));
-                _spawnTimers[i] = Random.Range(2.5f, 3.75f);
+                _spawnTimers[i] = Random.Range(3.0f, 3.75f);
             }
 
             y += 2;

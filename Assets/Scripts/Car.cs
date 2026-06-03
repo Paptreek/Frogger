@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -23,13 +22,13 @@ public class Car : MonoBehaviour
 
     private void Start()
     {
-        _honkTimer = Random.Range(0.5f, 2.0f);
+        _honkTimer = 0.5f;
         _player = _playerObj.GetComponent<PlayerController>();
     }
 
     private void Update()
     {
-        if (_playerObj != null && _playerObj.transform.position.y == transform.position.y)
+        if (PlayerIsNearby())
         {
             _honkTimer -= Time.deltaTime;
         }
@@ -86,10 +85,8 @@ public class Car : MonoBehaviour
     {
         AudioSource honk = GetComponent<AudioSource>();
 
-        if (_playerObj != null && transform.position.y == _playerObj.transform.position.y && !_player.IsDead)
+        if (PlayerIsNearby())
         {
-            //Debug.Log($"Car: {transform.position}, Player: {_playerTransform}");
-
             if (_honkTimer <= 0)
             {
                 honk.pitch = Random.Range(0.5f, 2.0f);
@@ -97,6 +94,31 @@ public class Car : MonoBehaviour
 
                 _honkTimer = Random.Range(0.5f, 2.0f);
             }
+        }
+    }
+
+    private bool PlayerIsNearby()
+    {
+        float playerX = _playerObj.transform.position.x;
+        float carX = transform.position.x;
+
+        float playerY = _playerObj.transform.position.y;
+        float carY = transform.position.y;
+
+        if (_playerObj != null && !_player.IsDead)
+        {
+            if (Mathf.Abs(carX - playerX) <= 6 && carY == playerY)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 

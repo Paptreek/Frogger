@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                Score += RemainingLives * 250;
                 _victorySound.Play();
                 RemovePlayer();
             }
