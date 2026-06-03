@@ -77,7 +77,6 @@ public class TurtleGroup : MonoBehaviour
             tempObject.GetComponent<SinkingTurtle>().MoveSpeed = moveSpeed;
         }
 
-
         return tempObject;
     }
 }

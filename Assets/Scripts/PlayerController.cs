@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _playerSpriteObj;
     [SerializeField] private GameObject _playerMoveSoundObj;
     [SerializeField] private GameObject _playerDeathSoundObj;
+    [SerializeField] private GameObject _lilypadSoundObj;
+    [SerializeField] private GameObject _victorySoundObj;
+    [SerializeField] private GameObject _defeatSoundObj;
 
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _emptySprite;
@@ -23,9 +26,11 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private AudioSource _playerMoveSound;
     private AudioSource _playerDeathSound;
+    private AudioSource _lilypadSound;
+    private AudioSource _victorySound;
+    private AudioSource _defeatSound;
 
     private bool _canMove = true;
-    private bool _isDead;
     private bool _isOnTurtle;
     private bool _isOnLog;
     private float _deathTimer;
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private int _highestRowReached = 1;
     private Vector3 _startPos = new Vector3(0, -12, 0);
 
+    public bool IsDead { get; private set; }
     public int RemainingLives { get; private set; } = 3;
     public int LilypadsReached { get; private set; }
     public int Score { get; private set; }
@@ -47,6 +53,9 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = _playerSpriteObj.GetComponent<SpriteRenderer>();
         _playerMoveSound = _playerMoveSoundObj.GetComponent<AudioSource>();
         _playerDeathSound = _playerDeathSoundObj.GetComponent<AudioSource>();
+        _lilypadSound = _lilypadSoundObj.GetComponent<AudioSource>();
+        _victorySound = _victorySoundObj.GetComponent<AudioSource>();
+        _defeatSound = _defeatSoundObj.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -169,14 +178,13 @@ public class PlayerController : MonoBehaviour
 
             if (LilypadsReached < 5)
             {
+                _lilypadSound.Play();
                 ResetPlayer();
             }
             else
             {
-                _timeBarObj.SetActive(false);
-                GetComponent<BoxCollider2D>().enabled = false;
-                Destroy(_playerSpriteObj);
-                _canMove = false;
+                _victorySound.Play();
+                RemovePlayer();
             }
         }
     }
@@ -254,11 +262,18 @@ public class PlayerController : MonoBehaviour
 
     private void Kill()
     {
-        _playerDeathSound.Play();
+        if (RemainingLives > 0)
+        {
+            _playerDeathSound.Play();
+        }
+        else
+        {
+            _defeatSound.Play();
+        }
 
         _deathTimer = 1.0f;
 
-        _isDead = true;
+        IsDead = true;
         _canMove = false;
 
         _animator.SetBool("isDead", true);
@@ -271,7 +286,7 @@ public class PlayerController : MonoBehaviour
 
     private void TryRespawn()
     {
-        if (_isDead && _spriteRenderer.sprite == _emptySprite)
+        if (IsDead && _spriteRenderer != null && _spriteRenderer.sprite == _emptySprite)
         {
             if (RemainingLives >= 0)
             {
@@ -279,8 +294,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject, 2.0f);
-                _timeBarObj.SetActive(false);
+                RemovePlayer();
             }
         }
     }
@@ -293,11 +307,19 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<BoxCollider2D>().enabled = true;
         _canMove = true;
-        _isDead = false;
+        IsDead = false;
 
         _animator.SetBool("isDead", false);
         _timeBar.ResetTimer();
 
         _playerSpriteObj.transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
+    private void RemovePlayer()
+    {
+        _timeBarObj.SetActive(false);
+        GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(_playerSpriteObj);
+        _canMove = false;
     }
 }

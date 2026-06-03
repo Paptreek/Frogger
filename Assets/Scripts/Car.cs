@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -14,16 +15,33 @@ public class Car : MonoBehaviour
     private Vector2 _carFourCollider = new Vector2(2.7f, 1.42f);
     private Vector2 _carFiveCollider = new Vector2(3.6f, 1.42f);
 
+    private GameObject _playerObj;
+    private PlayerController _player;
+    private float _honkTimer;
+
     public float MoveSpeed { get; set; } = 7.5f;
+
+    private void Start()
+    {
+        _honkTimer = Random.Range(0.5f, 2.0f);
+        _player = _playerObj.GetComponent<PlayerController>();
+    }
 
     private void Update()
     {
+        if (_playerObj != null && _playerObj.transform.position.y == transform.position.y)
+        {
+            _honkTimer -= Time.deltaTime;
+        }
+
         transform.Translate(new Vector3(MoveSpeed, 0, 0) * Time.deltaTime);
 
         if (Mathf.Abs(transform.position.x) > 30)
         {
             Destroy(gameObject);
         }
+
+        HonkIfNearPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,5 +80,28 @@ public class Car : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = _carSpriteFive;
             GetComponent<BoxCollider2D>().size = _carFiveCollider;
         }
+    }
+
+    private void HonkIfNearPlayer()
+    {
+        AudioSource honk = GetComponent<AudioSource>();
+
+        if (_playerObj != null && transform.position.y == _playerObj.transform.position.y && !_player.IsDead)
+        {
+            //Debug.Log($"Car: {transform.position}, Player: {_playerTransform}");
+
+            if (_honkTimer <= 0)
+            {
+                honk.pitch = Random.Range(0.5f, 2.0f);
+                honk.Play();
+
+                _honkTimer = Random.Range(0.5f, 2.0f);
+            }
+        }
+    }
+
+    public void SetPlayerTransform(GameObject playerObj)
+    {
+        _playerObj = playerObj;
     }
 }

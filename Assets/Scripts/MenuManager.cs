@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _muteButton;
     [SerializeField] private GameObject _unmuteButton;
+    [SerializeField] private GameObject _optionsButton;
 
     void Update()
     {
@@ -36,6 +37,8 @@ public class MenuManager : MonoBehaviour
         {
             _pauseMenuPanel.SetActive(false);
         }
+
+        UpdateMuteButton();
     }
 
     public void ResumeGame()
@@ -54,5 +57,35 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
         Time.timeScale = 1;
+    }
+
+    public void ToggleMute()
+    {
+        MusicManager.ToggleMute();
+    }
+
+    private void UpdateMuteButton()
+    {
+        //Debug.Log($"Pause Panel: {_pauseMenuPanel.activeInHierarchy} Audio Listener: {AudioListener.volume}");
+
+        if (_pauseMenuPanel.activeInHierarchy && !_optionsButton.activeInHierarchy)
+        {
+            if (AudioListener.volume == 1)
+            {
+                _muteButton.SetActive(true);
+                _unmuteButton.SetActive(false);
+            }
+            else if (AudioListener.volume == 0)
+            {
+                _muteButton.SetActive(false);
+                _unmuteButton.SetActive(true);
+            }
+        }
+        else
+        {
+            _muteButton.SetActive(false);
+            _unmuteButton.SetActive(false);
+        }
+
     }
 }

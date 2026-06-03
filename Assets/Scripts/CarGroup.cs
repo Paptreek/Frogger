@@ -3,6 +3,7 @@ using UnityEngine;
 public class CarGroup : MonoBehaviour
 {
     [SerializeField] private GameObject _carObj;
+    [SerializeField] private GameObject _playerObj;
 
     private float[] _laneSpeeds = new float[5];
     private float[] _spawnTimers = new float[5];
@@ -63,5 +64,6 @@ public class CarGroup : MonoBehaviour
         GameObject tempObject = Instantiate(_carObj, new Vector3(x, y, 0), transform.rotation);
 
         tempObject.GetComponent<Car>().MoveSpeed = moveSpeed;
+        tempObject.GetComponent<Car>().SetPlayerTransform(_playerObj);
     }
 }
