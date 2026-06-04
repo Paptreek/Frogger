@@ -178,6 +178,7 @@ public class PlayerController : MonoBehaviour
             {
                 Score += RemainingLives * 250;
                 _victorySound.Play();
+                _timeBar.enabled = false;
                 _playerSpriteObj.SetActive(false);
                 RemovePlayer();
             }
